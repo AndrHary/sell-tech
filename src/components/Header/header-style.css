@@ -1,0 +1,66 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Noto Serif', serif;
+    background-color: #3c4654;
+    height: 4rem;
+    }
+    .logo{
+        font-size: 25px;
+        padding: 0.5rem;
+        letter-spacing: 5px;
+        color: #FAF6F6;
+        font-family: 'Praise', cursive;
+    }
+    .nav-links{
+        display: flex;
+        width: 60%;
+        justify-content: space-around;
+        padding: 1rem;
+        list-style-type: none;
+    }
+    
+    .nav-links a{
+        color: #FAF6F6;
+        text-decoration: none;
+        letter-spacing: 2px;
+        font-weight: 900;
+        font-size: 14px;
+        padding-top: 0.5rem;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem;
+        padding-right: 1rem;
+        border-radius: 5px;
+    }
+    .search-bar{
+        display: flex;
+        height: 1.5rem;
+        width: 25%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #search{
+        flex: 4;
+        border-radius: 4px;
+        border: none;
+        margin-left: 4px;
+        background-color: #4d596b;
+    }
+    .search-btn{
+        width: 40px;
+        margin-left: 4px;
+        background-color: #FAF6F6;
+        border: none;
+        border-radius: 2px;
+    }
+    .label-search{
+        font-family: 'Noto Serif', serif;
+        color: #FAF6F6;
+    
+    }
+    .nav-links a:hover {
+     background-color:#FAF6F6 ;
+     color: #3c4654;
+     transition: 0.3s;
+    }
