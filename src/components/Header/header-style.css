@@ -60,7 +60,8 @@
     
     }
     .nav-links a:hover {
-     background-color:#FAF6F6 ;
-     color: #3c4654;
-     transition: 0.3s;
-    }
+        background-color:#FAF6F6 ;
+        color: #3c4654;
+        transition: 0.3s;
+       }
+  
