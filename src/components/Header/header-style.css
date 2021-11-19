@@ -64,4 +64,8 @@
         color: #3c4654;
         transition: 0.3s;
        }
+       .active {
+           color: #3c4654;
+           background-color: #FAF6F6;
+       }
   
