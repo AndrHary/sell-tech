@@ -1,0 +1,55 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+    height: calc(100vh - 4rem);
+}
+.login-container fieldset {
+    background-image: linear-gradient(to right top, grey, #fafaf6 80%,grey); 
+
+    width: 35rem;
+    height: 25rem;
+    border: none;
+    margin-top: 4rem;
+}
+.field {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    font-family: 'Noto Serif', serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+
+}
+.field input {
+    width: 24rem;
+    margin-left: 3rem;
+    height: 1.5rem;
+    border-radius: 7px;
+    background-color: #fafaf6;
+    margin-right: 20px;
+}
+h2 {
+   color: black;
+   font-family: 'Noto Serif', serif;
+   font-size: 24px;
+   font-weight: bold;
+
+}
+.button-submit{
+    height: 40px;
+    width: 100px;
+    background-color: darkslategray;
+    color: #fafaf6;
+    font-family: 'Noto Serif', serif;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: black;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+.register-redirect{
+    height: 5rem;
+    margin-top: 60px;
+}
