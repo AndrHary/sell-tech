@@ -6,8 +6,10 @@
     background-color: #3c4654;
     height: 4rem;
     }
-    .logo{
-        font-size: 25px;
+    .logo a{
+        text-decoration: none;
+        background-color: #3c4654;
+        font-size: 40px;
         padding: 0.5rem;
         letter-spacing: 5px;
         color: #FAF6F6;
