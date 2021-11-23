@@ -48,6 +48,7 @@ h2 {
     border-color: black;
     letter-spacing: 2px;
     font-size: 16px;
+    cursor: pointer;
 }
 .register-redirect{
     height: 5rem;

@@ -6,6 +6,7 @@ import HeaderComponent from './components/Header/HeaderComponent';
 import WelcomeComponent from './components/WelcomePageComponent/WellcomeComponent';
 import LoginForm from './components/LoginComponent/LoginComponent';
 import RegisterComponent from './components/RegisterComponent/RegisterComponent';
+import AllItems from './components/AllItems/AllItems';
 function App() {
   let [user, setUser] = useState({isAuthenticated: false, email: undefined})
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" exact component={WelcomeComponent}></Route>
         <Route path="/users/login" component={() => <LoginForm onLogin={onLogin}/>}></Route>
         <Route path="/users/register" component={() => <RegisterComponent />}></Route>
+        <Route path="/items/offers" component={() => <AllItems />}></Route>
       </main>
     </div>
   );
