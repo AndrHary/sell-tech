@@ -1,11 +1,11 @@
 .login-container {
     display: flex;
     justify-content: center;
-    background-color: grey;
+    background-color: #e0fbfe;
     height: calc(100vh - 4rem);
 }
 .login-container fieldset {
-    background-image: linear-gradient(to right top, grey, #fafaf6 80%,grey); 
+    background-image: linear-gradient(to right top, #e0fbfe, #fafaf6 80%, #e0fbfe); 
     border-radius: 5px;
     width: 35rem;
     height: 25rem;

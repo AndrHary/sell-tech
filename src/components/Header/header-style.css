@@ -3,12 +3,12 @@
     justify-content: space-between;
     align-items: center;
     font-family: 'Noto Serif', serif;
-    background-color: #3c4654;
+    background-color: #5f9ea0;
     height: 4rem;
     }
     .logo a{
         text-decoration: none;
-        background-color: #3c4654;
+        background-color: #5f9ea0;
         font-size: 40px;
         padding: 0.5rem;
         letter-spacing: 5px;
@@ -47,7 +47,7 @@
         border-radius: 4px;
         border: none;
         margin-left: 4px;
-        background-color: #4d596b;
+        background-color: lightskyblue;
     }
     .search-btn{
         width: 40px;
@@ -63,11 +63,11 @@
     }
     .nav-links a:hover {
         background-color:#FAF6F6 ;
-        color: #3c4654;
+        color: #5f9ea0;
         transition: 0.3s;
        }
        .active {
-           color: #3c4654;
+           color: #5f9ea0;
            background-color: #FAF6F6;
        }
   

@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-color:#e0fbfe;
 }
 .register-container {
     width: 100%;
@@ -9,7 +9,7 @@ body{
     align-items: center;
 }
 .register-container fieldset {
-    background-image: linear-gradient(to right top, grey, #fafaf6 80%,grey); 
+    background-image: linear-gradient(to right top,#e0fbfe , #fafaf6 80%,#e0fbfe); 
     border-radius: 10px;
     width: 75rem;
     height: 34rem;

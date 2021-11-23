@@ -1,11 +1,11 @@
 import './category-style.css'
 import SingleCategory from './SingleCategoryComponent'
 function CategoryComponent() {
-    let categories = [{name: 'Phones', photo: './images/phone-category.jpg', id: 2},
-    {name: 'Computers', photo: './images/computer-cat.jpg', id: 3},
-    {name: 'Parts', photo: './images/parts-cat.jpg', id: 4},
-    {name: 'Accessories', photo: './images/accessory-cat.jpg', id: 5},
-    {name: 'Services', photo: './images/services-cat.jpg', id: 6}]
+    let categories = [{name: 'Phones', photo: <i className="fas fa-mobile-alt ico"></i>, id: 'second'},
+    {name: 'Computers', photo: <i className="fas fa-laptop ico"></i>, id: 'third'},
+    {name: 'Parts', photo: <i className="ico fas fa-microchip"></i>, id: 'fourth'},
+    {name: 'Accessories', photo: <i className="ico fas fa-headphones"></i>, id: 'fifth'},
+    {name: 'Services', photo: <i className="fas fa-tools ico"></i>, id: 'sixth'}]
     return (
         <footer className="category-container">
           {categories.map((x, i) => <SingleCategory phone={x} key={x.id} ></SingleCategory>)}
