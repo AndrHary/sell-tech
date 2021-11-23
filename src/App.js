@@ -4,7 +4,8 @@ import { Route } from 'react-router-dom';
 import {useState, useEffect} from "react";
 import HeaderComponent from './components/Header/HeaderComponent';
 import WelcomeComponent from './components/WelcomePageComponent/WellcomeComponent';
-import LoginForm from './components/RegisterForm/LoginComponent';
+import LoginForm from './components/LoginComponent/LoginComponent';
+import RegisterComponent from './components/RegisterComponent/RegisterComponent';
 function App() {
   let [user, setUser] = useState({isAuthenticated: false, email: undefined})
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
       <main>
         <Route path="/" exact component={WelcomeComponent}></Route>
         <Route path="/users/login" component={() => <LoginForm onLogin={onLogin}/>}></Route>
+        <Route path="/users/register" component={() => <RegisterComponent />}></Route>
       </main>
     </div>
   );
