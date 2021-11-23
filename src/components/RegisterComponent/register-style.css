@@ -1,0 +1,89 @@
+body{
+    background-color: grey;
+}
+.register-container {
+    width: 100%;
+    height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-container fieldset {
+    background-image: linear-gradient(to right top, grey, #fafaf6 80%,grey); 
+    border-radius: 10px;
+    width: 75rem;
+    height: 34rem;
+    border: none;
+}
+.input-wraper {
+    display: flex;
+    justify-content: space-around;
+}
+.left-side {
+    width: 50%;
+}
+.left-side input {
+    margin-left:9rem;
+}
+.right-side {
+    width: 50%;
+}
+.field-register {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    font-family: 'Noto Serif', serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+
+}
+.login-redirect{
+    height: 3rem;
+    margin-top: 60px;
+    margin-top: 2.5rem;
+}
+.file-input{
+    z-index: -1;
+    position: absolute;
+    display: none;
+}
+.upload-image-wrap{
+position: relative;
+}
+.upload-image {
+    display: inline-block;
+    padding: 12px 18px;
+    cursor: pointer;
+    background-color: darkslategray;
+    color: #fafaf6;
+    font-family: 'Noto Serif', serif;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: black;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+.profile-picture-container {
+    display: flex;
+    justify-content: space-around;
+}
+.picture-container {
+    width: 160px;
+    height: 160px;
+}
+.picture-container img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.input-register input {
+    width: 20rem;
+    margin-left: 3rem;
+    height: 1.5rem;
+    border-radius: 7px;
+    background-color: #fafaf6;
+    margin-right: 20px;
+}
+
