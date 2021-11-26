@@ -4,6 +4,8 @@
     align-items: center;
     padding: 0;
     margin-bottom: 0;
+    position: absolute;
+    top: 4rem;
 }
 .banner-container{
     width: 100%;

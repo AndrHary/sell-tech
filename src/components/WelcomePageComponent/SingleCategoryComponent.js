@@ -1,7 +1,7 @@
 function SingleCategory(props) {
     return (
           <div className="single-category-container" id={props.phone.id}>
-              <a href="/">
+              <a className="category-link" href="/">
                   <div className="single-category-photo">
                       {props.phone.photo}
                   </div>

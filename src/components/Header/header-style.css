@@ -5,6 +5,9 @@
     font-family: 'Noto Serif', serif;
     background-color: #5f9ea0;
     height: 4rem;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
     }
     .logo a{
         text-decoration: none;
@@ -19,7 +22,6 @@
         display: flex;
         width: 60%;
         justify-content: space-around;
-        padding: 1rem;
         list-style-type: none;
     }
     
