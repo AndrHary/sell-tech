@@ -3,7 +3,6 @@ import InputComponent from './InputComponent'
 import { NavLink } from "react-router-dom"
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import registerServices from './registerServices'
 function RegisterComponent({onRegister}) {
     let history = useHistory()
     let [image, setImage] = useState()
