@@ -1,12 +1,12 @@
 import {NavLink} from "react-router-dom"
-let UserHeaderComponent = ({email}) => {
+let UserHeaderComponent = ({user}) => {
     return (
         <>
             <li>
-                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/items/create">Sell</NavLink>
+                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/items/create-item">Sell</NavLink>
             </li>
             <li>
-                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/users/my-profile/:username">{email}</NavLink>
+                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/users/my-profile/:username">{user.username}</NavLink>
             </li>
             <li>
                 <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/items/offers">Offers</NavLink>

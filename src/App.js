@@ -7,26 +7,28 @@ import WelcomeComponent from './components/WelcomePageComponent/WellcomeComponen
 import LoginForm from './components/LoginComponent/LoginComponent';
 import RegisterComponent from './components/RegisterComponent/RegisterComponent';
 import AllItems from './components/AllItems/AllItems';
-function App() {
-  let [user, setUser] = useState({isAuthenticated: false, email: undefined})
+import CreateItem from './components/CreateItem/CreateItem';
+function App(){
+  let [userLog, setUser] = useState({isAuthenticated: false, user : undefined})
   useEffect(() => {
-    let email = localStorage.getItem('email')
-    setUser({isAuthenticated: Boolean(email), email: email})
+    let user = localStorage.getItem('user')
+    setUser({isAuthenticated: Boolean(user), user: user})
   }, [])
-  let onLogin = (email) => {
-     localStorage.setItem('email', email)
-     setUser({isAuthenticated: Boolean(email), email: email})
+  let onLogin = (user) => {
+     localStorage.setItem('user', user)
+     setUser({isAuthenticated: Boolean(user), user: user})
   }
   return (
     <div className="App">
       <header>
-        <HeaderComponent {...user}/>
+        <HeaderComponent {...userLog}/>
       </header>
       <main>
         <Route path="/" exact component={WelcomeComponent}></Route>
         <Route path="/users/login" component={() => <LoginForm onLogin={onLogin}/>}></Route>
-        <Route path="/users/register" component={() => <RegisterComponent />}></Route>
+        <Route path="/users/register" component={() => <RegisterComponent onRegister={onLogin} />}></Route>
         <Route path="/items/offers" component={() => <AllItems />}></Route>
+        <Route path="/items/create-item" component={() => <CreateItem />}></Route>
       </main>
     </div>
   );

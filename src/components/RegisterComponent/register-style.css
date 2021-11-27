@@ -2,8 +2,9 @@ body{
     background-color:#e0fbfe;
 }
 .register-container {
+    position: absolute;
     width: 100%;
-    height: calc(100vh - 4rem);
+    top: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;

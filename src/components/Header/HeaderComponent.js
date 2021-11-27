@@ -2,7 +2,7 @@ import './header-style.css'
 import { NavLink } from 'react-router-dom'
 import UserHeaderComponent from './UserHeaderComponent'
 import GuestHeaderComponent from './GuestHeaderComponent'
-function HeaderComponent({isAuthenticated, email}) {
+function HeaderComponent({isAuthenticated, user}) {
     return (
         <nav className="nav">
             <div className="logo">
@@ -14,7 +14,7 @@ function HeaderComponent({isAuthenticated, email}) {
                 <button className="search-btn"><i className="fas fa-search icon"></i></button>
             </div>
             <ul className="nav-links">
-            {isAuthenticated ? <UserHeaderComponent email={email}/> : <GuestHeaderComponent/>}
+            {isAuthenticated ? <UserHeaderComponent user={user}/> : <GuestHeaderComponent/>}
             </ul>
         </nav>
     )
