@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import UserHeaderComponent from './UserHeaderComponent'
 import GuestHeaderComponent from './GuestHeaderComponent'
 function HeaderComponent({isAuthenticated, user}) {
+    let username = localStorage.getItem('username')
     return (
         <nav className="nav">
             <div className="logo">
@@ -14,7 +15,7 @@ function HeaderComponent({isAuthenticated, user}) {
                 <button className="search-btn"><i className="fas fa-search icon"></i></button>
             </div>
             <ul className="nav-links">
-            {isAuthenticated ? <UserHeaderComponent user={user}/> : <GuestHeaderComponent/>}
+            {username ? <UserHeaderComponent username={username}/> : <GuestHeaderComponent/>}
             </ul>
         </nav>
     )
