@@ -6,10 +6,10 @@ let UserHeaderComponent = ({username}) => {
                 <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/items/create-item">Sell</NavLink>
             </li>
             <li>
-                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/users/my-profile/:username">{username}</NavLink>
+                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to={`/users/my-profile/${username}`}>{username}</NavLink>
             </li>
             <li>
-                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/items/offers">Offers</NavLink>
+                <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/items/newest-items">Offers</NavLink>
             </li>
             <li>
                 <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/users/items/:username/favorite"><i className="fas fa-heart"></i></NavLink>

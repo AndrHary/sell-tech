@@ -31,9 +31,10 @@ function App(){
         <Route path="/" exact component={WelcomeComponent}></Route>
         <Route path="/users/login" component={() => <LoginForm onLogin={onLogin}/>}></Route>
         <Route path="/users/register" component={() => <RegisterComponent onRegister={onLogin} />}></Route>
-        <Route path="/items/offers" component={() => <AllItems />}></Route>
+        <Route path="/items/newest-items" component={() => <AllItems />}></Route>
         <Route path="/items/create-item" component={() => <CreateItem />}></Route>
         <Route path="/users/my-profile/:username" component={() => <MyProfileComponent user={userLog.user} />}></Route>
+        <Route path="/items/create-item" component={() => <CreateItem />}></Route>
       </main>
     </div>
   );

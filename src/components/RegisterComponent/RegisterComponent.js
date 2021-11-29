@@ -60,13 +60,13 @@ function RegisterComponent({ onRegister }) {
                 <fieldset>
                     <h2>Sign Up</h2>
                     <div className="input-wraper">
-                        <div className="left-side">
-                            <InputComponent name="username" text="Username" type="text" />
-                            <InputComponent name="email" text="Email" type="text" />
+                        <div className="register-one-side">
+                            <InputComponent name="username" text="Username" type="text" placeHolder="ex. Jonny56"/>
+                            <InputComponent name="email" text="Email" type="text" placeHolder="ex. Jonny56@gmail.com"/>
                             <InputComponent name="password" text="Password" type="password" />
                             <InputComponent name="repeat-password" text="Repeat Password" type="password" />
                         </div>
-                        <div className="right-side">
+                        <div className="register-one-side">
                             <p className="field-register profile-picture-container">
                                 <div className="picture-container">
                                     {shownImage && <img src={shownImage} className="selected-photo" alt="Selected" />}
@@ -79,6 +79,12 @@ function RegisterComponent({ onRegister }) {
                                 </div>
                             </p>
                             <InputComponent name="phone-number" text="Phone Number" type="number" />
+                        </div>
+                        <div className="register-one-side">
+                            <InputComponent name="country" text="Coutry" type="text" placeHolder="ex. Bulgaria"/>
+                            <InputComponent name="town" text="City/Town" type="text" placeHolder="ex. Sofia"/>
+                            <InputComponent name="post-code" text="Post Code" type="number" placeHolder="ex. 1000"/>
+                            <InputComponent name="more-info" text="Additional Information" type="text" placeHolder="ex. st. Mir 4, 4th floor, ap. 3"/>
                         </div>
                     </div>
                     <input className="button-submit-login" type="submit" value="Sign Up" />
