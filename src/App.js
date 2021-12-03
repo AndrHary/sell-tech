@@ -16,10 +16,15 @@ function App(){
     setUser({isAuthenticated: Boolean(user), user: user})
   }, [])
   let onLogin = (user) => {
+    localStorage.setItem('userId', user._id)
      localStorage.setItem('username', user.username)
      localStorage.setItem('email', user.email)
      localStorage.setItem('profilePictureUrl', user.profilePictureUrl)
      localStorage.setItem('phone', user.phone)
+     localStorage.setItem('country', user.country)
+     localStorage.setItem('city', user.city)
+     localStorage.setItem('postCode', user.postCode)
+     localStorage.setItem('moreInfo', user.moreInfo)
      setUser({isAuthenticated: Boolean(user), user: user})
   }
   return (

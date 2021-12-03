@@ -3,10 +3,10 @@ let GuestHeaderComponent = () => {
     return (
         <>
           <li>
-                    <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/users/login">Log In</NavLink>
+                    <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to="/users/login">Log In</NavLink>
                 </li>
                 <li>
-                    <NavLink activeStyle={{ color: "#5f9ea0", backgroundColor: "#FAF6F6" }} to="/users/register">Sign Up</NavLink>
+                    <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to="/users/register">Sign Up</NavLink>
                 </li>  
         </>
     )

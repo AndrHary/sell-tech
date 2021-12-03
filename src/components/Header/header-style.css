@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: 'Noto Serif', serif;
-    background-color: #5f9ea0;
+    background-color: #232265;
     height: 4rem;
     position: fixed;
     top: 0;
@@ -12,7 +12,7 @@
     }
     .logo a{
         text-decoration: none;
-        background-color: #5f9ea0;
+        background-color: #232265;
         font-size: 40px;
         padding: 0.5rem;
         letter-spacing: 5px;
@@ -66,11 +66,11 @@
     }
     .nav-links a:hover {
         background-color:#FAF6F6 ;
-        color: #5f9ea0;
+        color: #232265;
         transition: 0.3s;
        }
        .active {
-           color: #5f9ea0;
+           color: #232265;
            background-color: #FAF6F6;
        }
   

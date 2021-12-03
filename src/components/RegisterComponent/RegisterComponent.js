@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 function RegisterComponent({ onRegister }) {
     let history = useHistory()
-    let [image, setImage] = useState()
+    let [image, setImage] = useState([])
     let [shownImage, setShownImage] = useState('https://cdn.onlinewebfonts.com/svg/img_117244.png')
     let changePhotoHandler = (e) => {
         if (e.target.files && e.target.files[0]) {
@@ -31,6 +31,10 @@ function RegisterComponent({ onRegister }) {
                 let password = formData.get('password')
                 let rePass = formData.get('repeat-password')
                 let phone = formData.get('phone-number')
+                let country = formData.get('country')
+                let city = formData.get('town')
+                let postCode = formData.get('post-code')
+                let moreInfo = formData.get('more-info')
                 if (password === rePass) {
                     fetch('http://localhost:3050/users/register', {
                         method: 'POST',
@@ -42,12 +46,20 @@ function RegisterComponent({ onRegister }) {
                             email: email,
                             password: password,
                             profilePictureUrl: data.secure_url,
-                            phone: phone
+                            phone: phone,
+                            country: country,
+                            city: city,
+                            postCode: postCode,
+                            moreInfo: moreInfo
                         })
                     }).then(dat => dat.json())
                         .then(res => {
+                            console.log(res)
                             onRegister(res)
                             history.push('/')
+                        })
+                        .catch((err) => {
+                            return
                         })
                 }
             })
@@ -58,7 +70,6 @@ function RegisterComponent({ onRegister }) {
         <div className="register-container">
             <form id="register-form" onSubmit={submitHandler} >
                 <fieldset>
-                    <h2>Sign Up</h2>
                     <div className="input-wraper">
                         <div className="register-one-side">
                             <InputComponent name="username" text="Username" type="text" placeHolder="ex. Jonny56"/>

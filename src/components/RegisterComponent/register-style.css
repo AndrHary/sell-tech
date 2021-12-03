@@ -1,5 +1,5 @@
 body{
-    background-color:#e0fbfe;
+    background-color:#c3d9e3;
 }
 .register-container {
     position: absolute;
@@ -10,7 +10,7 @@ body{
     align-items: center;
 }
 .register-container fieldset {
-    background-image: linear-gradient(to right top,#e0fbfe , #fafaf6 80%,#e0fbfe); 
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
     border-radius: 10px;
     width: 75rem;
     height: 34rem;
@@ -34,19 +34,21 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
     font-family: 'Noto Serif', serif;
     font-size: 16px;
     letter-spacing: 2px;
-
+    width: 27rem;    
 }
 .register-one-side{
     height:100%;
-    width: calc(100% / 3);
+    width: 27rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.register-one-side .field-register {
+    padding-top: 2rem;
 }
 .login-redirect{
     height: 3rem;
@@ -70,10 +72,8 @@ position: relative;
     font-family: 'Noto Serif', serif;
     text-decoration: none;
     border-radius: 5px;
-    border: 2px solid;
-    border-color: black;
     letter-spacing: 2px;
-    font-size: 16px;
+    font-size: 20px;
 }
 .profile-picture-container {
     display: flex;
@@ -82,20 +82,34 @@ position: relative;
 .picture-container {
     width: 160px;
     height: 160px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1rem;
+    border-radius: 50%;
 }
 .picture-container img {
-    max-height: 100%;
-    max-width: 100%;
-    border-radius: 5px;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+}
+.input-register {
+    width: 27rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .input-register input {
-    width: 20rem;
-    margin-left: 3rem;
+    width: 60%;
     height: 1.5rem;
     border-radius: 7px;
     background-color: #fafaf6;
-    margin-right: 20px;
     border-top: none;
     border-left: none;
     border-right: none;

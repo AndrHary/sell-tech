@@ -4,8 +4,7 @@ function CategoryComponent() {
     let categories = [{name: 'Phones', photo: <i className="fas fa-mobile-alt ico"></i>, id: 'second'},
     {name: 'Computers', photo: <i className="fas fa-laptop ico"></i>, id: 'third'},
     {name: 'Parts', photo: <i className="ico fas fa-microchip"></i>, id: 'fourth'},
-    {name: 'Accessories', photo: <i className="ico fas fa-headphones"></i>, id: 'fifth'},
-    {name: 'Services', photo: <i className="fas fa-tools ico"></i>, id: 'sixth'}]
+    {name: 'Accessories', photo: <i className="ico fas fa-headphones"></i>, id: 'fifth'}]
     return (
         <footer className="category-container">
           {categories.map((x, i) => <SingleCategory phone={x} key={x.id} ></SingleCategory>)}

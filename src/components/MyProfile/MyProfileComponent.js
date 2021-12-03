@@ -2,19 +2,22 @@ import { useEffect, useState } from 'react'
 import CardComponent from '../AllItems/CardComponent'
 import './my-profile-style.css'
 import MyProfileInputComponent from './MyProfileInputComponent'
+import {useParams} from 'react-router-dom'
 function MyProfileComponent() {
-    let [user, setUser] = useState({ username: undefined, email: undefined, phone: undefined })
+    let [user, setUser] = useState({username: undefined, email: undefined, phone: undefined, profilePictureUrl: undefined})
+    let params = useParams()
     useEffect(() => {
-        setUser({
-            username: localStorage.getItem('username'),
-            email: localStorage.getItem('email'),
-            phone: localStorage.getItem('phone')
+        fetch(`http://localhost:3050/users/my-profile/${params.username}`)
+        .then(res => res.json())
+        .then(data => {
+            setUser({username: data.username, email: data.email, phone: data.phone, profilePictureUrl: data.profilePictureUrl})
         })
-    }, [])
+    })
     return (
         <section id="my-profile">
             <div className="personal-info">
                 <div className="profile-pic-container">
+                    <img src={user.profilePictureUrl} alt="avatar"></img>
                 </div>
                 <form className="personal-info-form">
                     <MyProfileInputComponent text="Username" id="my-username" defVal={user.username}/>

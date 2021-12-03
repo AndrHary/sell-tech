@@ -1,4 +1,4 @@
-function InputComponent({name, text, type, placeHolder}) {
+function InputComponent({name, text, type, placeHolder, }) {
     return (
         <p className="field-register">
             <label htmlFor={name}>{text}</label>
