@@ -38,7 +38,7 @@ function CreateItem() {
             let town = formData.get('town')
             let postCode = formData.get('post-code')
             let additionalInformation = formData.get('more-info')
-            let imageUrl = data.secureUrl
+            let imageUrl = data.secure_url
             let ownerId = localStorage.getItem('userId') 
             fetch('http://localhost:3050/items/create-item', {
                 method: 'POST',

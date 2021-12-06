@@ -8,52 +8,47 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    bottom: 0px;
 }
 .register-container fieldset {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(3rem);
     border-radius: 10px;
-    width: 75rem;
-    height: 34rem;
+    width: 65rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    height: fit-content;
     border: none;
 }
 .input-wraper {
     display: flex;
     justify-content: space-around;
 }
-.left-side {
-    width: 50%;
-}
-.left-side input {
-    margin-left:9rem;
-}
-.right-side {
-    width: 50%;
-}
+
 .field-register {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Noto Serif', serif;
-    font-size: 16px;
-    letter-spacing: 2px;
-    width: 27rem;    
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 20rem;    
 }
 .register-one-side{
     height:100%;
-    width: 27rem;
+    width: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .register-one-side .field-register {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
 }
 .login-redirect{
     height: 3rem;
-    margin-top: 60px;
-    margin-top: 2.5rem;
+    margin-top: 1rem;
 }
 .file-input{
     z-index: -1;
@@ -87,6 +82,7 @@ position: relative;
     z-index: 1;
     margin-bottom: 1rem;
     border-radius: 50%;
+
 }
 .picture-container img {
     cursor: pointer;
@@ -108,8 +104,7 @@ position: relative;
 .input-register input {
     width: 60%;
     height: 1.5rem;
-    border-radius: 7px;
-    background-color: #fafaf6;
+    background-color: rgba(255, 255, 255, 0);
     border-top: none;
     border-left: none;
     border-right: none;

@@ -58,7 +58,10 @@
     padding-left: 3px;
     margin-bottom: 1rem;
 }
-
+.card a {
+    height: fit-content;
+    width: fit-content;
+}
 .item-image-container {
     border-radius: 10px;
     background-color: black;
@@ -118,4 +121,10 @@
     height: 9rem;
     width: 100%;
     top: 0;
+}
+.card-link {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }

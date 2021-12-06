@@ -9,7 +9,7 @@ function AllItems() {
                 <div className="items">
                     <h2>8989099 Offers</h2>
                     <div className="card-container">
-                        <CardComponent/>
+                        <CardComponent itemId="akakakakakakak"/>
                         <CardComponent/>
                         <CardComponent/>
                         <CardComponent/>

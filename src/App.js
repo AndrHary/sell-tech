@@ -9,6 +9,7 @@ import RegisterComponent from './components/RegisterComponent/RegisterComponent'
 import AllItems from './components/AllItems/AllItems';
 import CreateItem from './components/CreateItem/CreateItem';
 import MyProfileComponent from './components/MyProfile/MyProfileComponent';
+import DetailsItemComponent from './components/DetailsItemComponent/DetailsItemComponent';
 function App(){
   let [userLog, setUser] = useState({isAuthenticated: false, user : undefined})
   useEffect(() => {
@@ -40,6 +41,7 @@ function App(){
         <Route path="/items/create-item" component={() => <CreateItem />}></Route>
         <Route path="/users/my-profile/:username" component={() => <MyProfileComponent user={userLog.user} />}></Route>
         <Route path="/items/create-item" component={() => <CreateItem />}></Route>
+        <Route path="/items/:itemId/details" component={() => <DetailsItemComponent />}></Route>
       </main>
     </div>
   );
