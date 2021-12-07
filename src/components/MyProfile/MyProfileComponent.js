@@ -3,16 +3,16 @@ import CardComponent from '../AllItems/CardComponent'
 import './my-profile-style.css'
 import MyProfileInputComponent from './MyProfileInputComponent'
 import {useParams} from 'react-router-dom'
+import {useContext} from 'react'
+import { authContext } from '../../contexts/authContext'
 function MyProfileComponent() {
-    let [user, setUser] = useState({username: undefined, email: undefined, phone: undefined, profilePictureUrl: undefined})
+    let user = useContext(authContext)
+    console.log(user)
     let params = useParams()
     useEffect(() => {
         fetch(`http://localhost:3050/users/my-profile/${params.username}`)
         .then(res => res.json())
-        .then(data => {
-            setUser({username: data.username, email: data.email, phone: data.phone, profilePictureUrl: data.profilePictureUrl})
-        })
-    })
+    }, [])
     return (
         <section id="my-profile">
             <div className="personal-info">

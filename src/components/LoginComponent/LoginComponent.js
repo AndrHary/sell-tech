@@ -1,6 +1,7 @@
 import "./login-style.css"
 import {NavLink, useHistory} from "react-router-dom"
 import InputComponent from "../RegisterComponent/InputComponent"
+import userServices from '../../utils/userServices.js'
 function LoginForm({onLogin}) {
     let history = useHistory()
    function submitHandler(e) {
@@ -8,16 +9,7 @@ function LoginForm({onLogin}) {
     let formData = new FormData(e.currentTarget)
     let email = formData.get('email')
     let password = formData.get('password')
-    fetch('http://localhost:3050/users/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
-    }).then(res => res.json())
+    userServices.login(email, password)
     .then(user => {
        onLogin(user)
        history.push('/')

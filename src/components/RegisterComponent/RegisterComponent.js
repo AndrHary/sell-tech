@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom"
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
+import userServices from '../../utils/userServices.js'
+import postImage from '../../utils/postImage.js'
 function RegisterComponent({ onRegister }) {
     let history = useHistory()
     let [image, setImage] = useState([])
@@ -19,60 +21,25 @@ function RegisterComponent({ onRegister }) {
         e.preventDefault()
         setIsLoading(true)
         let data = new FormData()
-        data.append('file', image)
-        data.append('upload_preset', 'xmjio1bi')
-        data.append('cloud_name', 'dwwwjp9qb')
-        fetch(`https://api.cloudinary.com/v1_1/dwwwjp9qb/image/upload`, {
-            method: 'POST',
-            body: data
-        })
-            .then(res => res.json())
+        postImage(data, image)
             .then(data => {
                 let formData = new FormData(e.target)
-                let username = formData.get('username')
-                let email = formData.get('email')
-                let password = formData.get('password')
-                let rePass = formData.get('repeat-password')
-                let phone = formData.get('phone-number')
-                let country = formData.get('country')
-                let city = formData.get('town')
-                let postCode = formData.get('post-code')
-                let moreInfo = formData.get('more-info')
-                if (password === rePass) {
-                    fetch('http://localhost:3050/users/register', {
-                        method: 'POST',
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            username: username,
-                            email: email,
-                            password: password,
-                            profilePictureUrl: data.secure_url,
-                            phone: phone,
-                            country: country,
-                            city: city,
-                            postCode: postCode,
-                            moreInfo: moreInfo
-                        })
-                    }).then(dat => dat.json())
-                        .then(res => {
-                            console.log(res)
-                            setIsLoading(false)
-                            onRegister(res)
-                            history.push('/')
-                        })
-                        .catch((err) => {
-                            return
-                        })
-                }
+                userServices.register(formData, data)
+                    .then(res => {
+                        setIsLoading(false)
+                        onRegister(res)
+                        history.push('/')
+                    })
+                    .catch(err => {
+                        setIsLoading(false)
+                        console.log(err)
+                        history.push('/users/register')
+                    })
             })
-
     }
-
     return (
         <div className="register-container">
-           {isLoading ? <LoadingSpinnerComponent/> : null}
+            {isLoading ? <LoadingSpinnerComponent /> : null}
             <form id="register-form" onSubmit={submitHandler} >
                 <fieldset>
                     <div className="input-wraper">
@@ -97,10 +64,10 @@ function RegisterComponent({ onRegister }) {
                             <InputComponent name="phone-number" text="Phone Number:" type="number" />
                         </div>
                         <div className="register-one-side">
-                            <InputComponent name="country" text="Coutry:" type="text"/>
+                            <InputComponent name="country" text="Coutry:" type="text" />
                             <InputComponent name="town" text="City/Town:" type="text" />
                             <InputComponent name="post-code" text="Post Code:" type="number" />
-                            <InputComponent name="more-info" text="Additional Information:" type="text" placeHolder="ex: st. Mir 4, 4th floor, ap. 3"/>
+                            <InputComponent name="more-info" text="Additional Information:" type="text" placeHolder="ex: st. Mir 4, 4th floor, ap. 3" />
                         </div>
                     </div>
                     <input className="button-submit-login" type="submit" value="Sign Up" />
