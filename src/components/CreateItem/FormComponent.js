@@ -1,24 +1,12 @@
 import { useState } from "react";
 import InputComponent from "../RegisterComponent/InputComponent";
+import AddImageComponent from "./AddImageComponent";
 import ImageInputComponent from "./ImageBoxComponent";
 import ImageBoxComponent from "./ImageBoxComponent";
 import SelectInputComponent from "./SelectInputComponent";
 
-function FormComponent({ submitHandler, settingImage, shownImage }) {
-    let [same, setSame] = useState()
-    console.log(same)
-    let sameAdress = (e) => {
-        if (e.target.value === 'same') {
-            setSame(true)
-        } else {
-            setSame(false)
-        }
-    }
-    let changeHandler = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            settingImage(e.target.files[0])
-        }
-    }
+function FormComponent({ submitHandler, settingImage, image}) {
+   
     return (
         <form className="create-form" onSubmit={submitHandler}>
             <div className="input-container">
@@ -38,9 +26,9 @@ function FormComponent({ submitHandler, settingImage, shownImage }) {
                             <p>Same address and phone number as yours?</p>
                             <div>
                                 <label htmlFor="name">Yes</label>
-                                <input name="same" value="same" onClick={sameAdress} type="radio" ></input>
+                                <input name="same" value="same" type="radio" ></input>
                                 <label htmlFor="name">No</label>
-                                <input name="different" value="different" onClick={sameAdress} type="radio" ></input>
+                                <input name="different" value="different" type="radio" ></input>
                             </div>
                         </div>
                         <div className="address-phone">
@@ -54,22 +42,7 @@ function FormComponent({ submitHandler, settingImage, shownImage }) {
 
                     </div>
                 </div>
-                <div className="form-image-container">
-                    <div className="image-add-button-container">
-                        <div className="button-text-cont">
-                            <h3>Add Images</h3>
-                            <label className="item-images" htmlFor="profilePictureUrl">+</label>
-                            <span className="input-register">
-                                <input type="file" onChange={changeHandler} className="file-input" name="profilePictureUrl" id="profilePictureUrl" />
-                            </span>
-                        </div>
-                    </div>
-                    <div className="images-add-container">
-                        {shownImage.map((x) => <div className="input-image-cont">
-                            <img src={x} alt="item"></img>
-                        </div>)}
-                    </div>
-                </div>
+                <AddImageComponent image={image} settingImage={settingImage}/>
             </div>
             <button type="submit">Post Item</button>
         </form >

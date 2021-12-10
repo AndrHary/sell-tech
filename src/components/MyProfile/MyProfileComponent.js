@@ -12,7 +12,7 @@ function MyProfileComponent() {
     useEffect(() => {
         fetch(`http://localhost:3050/users/my-profile/${params.username}`)
         .then(res => res.json())
-    }, [])
+    }, [params.username])
     return (
         <section id="my-profile">
             <div className="personal-info">

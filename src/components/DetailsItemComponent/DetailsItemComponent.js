@@ -1,23 +1,36 @@
 import './details-item-style.css'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import PhotoTitleComponent from './PhotoTitleComponent'
+import { useState, useEffect } from 'react'
 function DetailsItemComponent() {
+    let params = useParams()
+    let [item, setItem] = useState()
+    useEffect(() => {
+        fetch(`http://localhost:3050/items/${params.itemId}/details`)
+        .then(res => res.json())
+        .then(data => {
+            setItem(data)
+        })
+    }, [])
+    console.log(item)
     return (
-        <section id="details">
+        <>
+        {item 
+    ? <section id="details">
             <div className="details-container">
-                <PhotoTitleComponent />
+                <PhotoTitleComponent item={item} />
                 <hr></hr>
                 <div className="details-information-container">
                     <div className="desc-cont">
-                        <h3>Desciption:</h3>
+                        <h3>Description:</h3>
                         <div className="description-container">
-                            <p>This is one of the best phones for all the times it has 12 mgpx camera and large screen with no minors of using</p>
+                            <p>{item.description}</p>
                         </div>
                     </div>
                     <div className="item-info-us">
                         <div className="item-location">
                             <h4>Location:</h4>
-                            <h3>Bulgaria, Sofia 1000, str. Detelina N: 4</h3>
+                            <h3>{item.country}, {item.town} {item.postCode}, str. Detelina N: 4</h3>
                         </div>
                         <div className="item-location">
                             <h4>Author email:</h4>
@@ -25,7 +38,7 @@ function DetailsItemComponent() {
                         </div>
                         <div className="item-location">
                             <h4>Author phone number:</h4>
-                            <h3>+359889152115</h3>
+                            <h3>+359{item.phone}</h3>
                         </div>
                         <div className="item-location">
                             <h4>Author:</h4>
@@ -43,6 +56,8 @@ function DetailsItemComponent() {
                 </div>
             </div>
         </section>
+        : null}
+        </>
     )
 }
 export default DetailsItemComponent

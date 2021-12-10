@@ -5,19 +5,16 @@ import { useEffect, useState } from 'react'
 import FormComponent from './FormComponent'
 import { useHistory } from 'react-router-dom'
 function CreateItem() {
-    let history = useHistory()
-    let [image, setImage] = useState()
-    let [shownImage, setShownImage] = useState([])
-    let settingImage = (file) => {
-            setImage(file)
-            if (shownImage.length < 5) {
-             setShownImage([...shownImage, URL.createObjectURL(file)])   
-            } 
+    const history = useHistory()
+    const [image, setImage] = useState({file: {}, image: ''})
+    console.log(image)
+    const settingImage = (file) => {
+         setImage(file)
     }
-    let submitHandler = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault()
         let data = new FormData()
-        data.append('file', image)
+        data.append('file', image.image)
         data.append('upload_preset', 'xmjio1bi')
         data.append('cloud_name', 'dwwwjp9qb')
         fetch(`https://api.cloudinary.com/v1_1/dwwwjp9qb/image/upload`, {
@@ -74,7 +71,7 @@ function CreateItem() {
                 <div className="choose-category-container">
                     <h2>Sell now with 3 clicks!</h2>
                 </div>
-                 <FormComponent shownImage={shownImage} settingImage={settingImage} submitHandler={submitHandler}/> 
+                 <FormComponent settingImage={settingImage} submitHandler={submitHandler} image={image}/> 
             </div>
         </section>
     )
