@@ -7,10 +7,13 @@ function login(email, password) {
         body: JSON.stringify({
             email: email,
             password: password
-        })
-    }).then(res => res.json())
+        }),
+    }).then(res => {
+        console.log(res)
+        return res.json()
+    })
 }
- async function register(formData, data) {
+function register(formData, data) {
     let username = formData.get('username')
     let email = formData.get('email')
     let password = formData.get('password')
@@ -21,7 +24,7 @@ function login(email, password) {
     let postCode = formData.get('post-code')
     let moreInfo = formData.get('more-info')
     if (password === rePass) {
-        let res = await fetch('http://localhost:3050/users/register', {
+        return fetch('http://localhost:3050/users/register', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -37,13 +40,7 @@ function login(email, password) {
                 postCode: postCode,
                 moreInfo: moreInfo
             })
-        })
-        let jsonRes = await res.json()
-        if (jsonRes.ok) {
-            return jsonRes
-        } else {
-            throw jsonRes
-        }
+        }).then(res => res.json())
     }
 }
 let userServices = {

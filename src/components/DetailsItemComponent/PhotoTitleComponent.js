@@ -2,7 +2,7 @@ function PhotoTitleComponent({item}) {
     return (
         <div className="photo-title-container">
             <div className="details-image-container">
-                <img src="https://static.digit.in/product/9e49b958c81da2b06c1f1d9f68e43b0a576e1658.jpeg" alt="product"></img>
+                <img src={item.imageUrl} alt="product"></img>
             </div>
             <div className="title-category-price-container">
                 <h2>{item.title}</h2>

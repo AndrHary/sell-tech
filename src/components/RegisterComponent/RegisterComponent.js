@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
 import userServices from '../../utils/userServices.js'
 import postImage from '../../utils/postImage.js'
-function RegisterComponent({ onRegister }) {
+function RegisterComponent({ onLogin }) {
     let history = useHistory()
     let [image, setImage] = useState([])
     let [shownImage, setShownImage] = useState('https://cdn.onlinewebfonts.com/svg/img_117244.png')
@@ -20,21 +20,17 @@ function RegisterComponent({ onRegister }) {
     let submitHandler = (e) => {
         e.preventDefault()
         setIsLoading(true)
-        let data = new FormData()
-        postImage(data, image)
+        let fData = new FormData()
+        postImage(fData, image)
             .then(data => {
                 let formData = new FormData(e.target)
                 userServices.register(formData, data)
-                    .then(res => {
+                    .then(resJson => {
                         setIsLoading(false)
-                        onRegister(res)
+                        onLogin(resJson)
                         history.push('/')
                     })
-                    .catch(err => {
-                        setIsLoading(false)
-                        console.log(err)
-                        history.push('/users/register')
-                    })
+
             })
     }
     return (

@@ -5,7 +5,7 @@ function CardComponent({ item }) {
             <div className="card">
 
                 <div className="item-image-container">
-                    <img src="/images/iphoneXr.jpg" alt="item for sale" />
+                    <img src={item.imageUrl} alt="item for sale" />
                 </div>
                 <div className="info">
                     <div className="title-price">

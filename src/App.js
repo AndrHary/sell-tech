@@ -12,9 +12,11 @@ import MyProfileComponent from './components/MyProfile/MyProfileComponent';
 import DetailsItemComponent from './components/DetailsItemComponent/DetailsItemComponent';
 import { authContext } from './contexts/authContext.js'
 function App() {
-  let [userLog, setUser] = useState()
+  let [userLog, setUser] = useState({})
   let onLogin = (user) => {
     setUser(user)
+    console.log(user)
+    console.log('done')
   }
   return (
     <authContext.Provider value={userLog}>
@@ -25,11 +27,10 @@ function App() {
         <main>
           <Route path="/" exact component={WelcomeComponent}></Route>
           <Route path="/users/login" component={() => <LoginForm onLogin={onLogin} />}></Route>
-          <Route path="/users/register" component={() => <RegisterComponent onRegister={onLogin} />}></Route>
+          <Route path="/users/register" component={() => <RegisterComponent onLogin={onLogin} />}></Route>
           <Route path="/items/newest-items" component={() => <AllItems />}></Route>
           <Route path="/items/create-item" component={() => <CreateItem />}></Route>
           <Route path="/users/my-profile/:username" component={() => <MyProfileComponent/>}></Route>
-          <Route path="/items/create-item" component={() => <CreateItem />}></Route>
           <Route path="/items/:itemId/details" component={() => <DetailsItemComponent />}></Route>
         </main>
       </div>

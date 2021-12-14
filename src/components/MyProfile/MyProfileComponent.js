@@ -7,7 +7,6 @@ import {useContext} from 'react'
 import { authContext } from '../../contexts/authContext'
 function MyProfileComponent() {
     let user = useContext(authContext)
-    console.log(user)
     let params = useParams()
     useEffect(() => {
         fetch(`http://localhost:3050/users/my-profile/${params.username}`)

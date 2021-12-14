@@ -16,7 +16,6 @@ function AddImageComponent({ image, settingImage }) {
     const changeHandler = (e) => {
         if (e.target.files && e.target.files[0]) {
             const image = { file: e.target.files[0] }
-            console.log(e.target.files)
             settingImage(image)
         }
     }

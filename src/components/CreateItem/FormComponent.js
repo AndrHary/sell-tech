@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { authContext } from "../../contexts/authContext";
 import InputComponent from "../RegisterComponent/InputComponent";
 import AddImageComponent from "./AddImageComponent";
-import ImageInputComponent from "./ImageBoxComponent";
-import ImageBoxComponent from "./ImageBoxComponent";
+import AddressPhoneComponent from "./AddressPhoneComponent";
 import SelectInputComponent from "./SelectInputComponent";
 
 function FormComponent({ submitHandler, settingImage, image}) {
-   
     return (
         <form className="create-form" onSubmit={submitHandler}>
             <div className="input-container">
@@ -21,30 +20,11 @@ function FormComponent({ submitHandler, settingImage, image}) {
                         <InputComponent text="Price:" type="number" name="price" />
                         <SelectInputComponent name="currency" text="Currency:" options={['BGN', 'EURO', '$']} clasName="select-container" />
                     </div>
-                    <div className="create-side-inputs third-column">
-                        <div className="address-phone-req">
-                            <p>Same address and phone number as yours?</p>
-                            <div>
-                                <label htmlFor="name">Yes</label>
-                                <input name="same" value="same" type="radio" ></input>
-                                <label htmlFor="name">No</label>
-                                <input name="different" value="different" type="radio" ></input>
-                            </div>
-                        </div>
-                        <div className="address-phone">
-                            <InputComponent name="phone" type="number" text="Phone Number" />
-                            <InputComponent name="country" text="Coutry" type="text" />
-                            <InputComponent name="town" text="City/Town" type="text" />
-                            <InputComponent name="post-code" text="Post Code" type="number" />
-                            <InputComponent name="more-info" text="Additional Information" type="text" />
-                        </div>
-
-
-                    </div>
+                    <AddressPhoneComponent/>
                 </div>
                 <AddImageComponent image={image} settingImage={settingImage}/>
             </div>
-            <button type="submit">Post Item</button>
+            <input className="button-submit-login create" type="submit" value="Sign Up" />
         </form >
     )
 }
