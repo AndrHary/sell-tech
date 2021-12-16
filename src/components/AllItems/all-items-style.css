@@ -7,7 +7,7 @@
     padding-bottom: 3rem;
     padding-top: 1rem;
     flex-direction: column;
-
+    z-index: 2;
 }
 #all-items h2 {
      margin-top: 0;
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
       backdrop-filter: blur(3rem);
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8, rgba(255, 255, 255, 0.4)));
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5, rgba(255, 255, 255, 0.2)));
     border-radius: 10px;
 }
 .items{
@@ -59,6 +59,8 @@
     margin-bottom: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    opacity: 1;
+    transition-duration: 1s ease;
 }
 .card a {
     height: fit-content;
@@ -105,9 +107,9 @@
     color: rgba(0, 0, 0, 0.5);
 }
 .card:hover {
-    height: 8.5rem;
-    width: 97%;
-    transition: 00.2s;
+    opacity: 1;
+    transition-duration: 0.3s;
+    transform: scale(1.02);
 }
 .item-image-container img{
     position: absolute;
@@ -136,4 +138,43 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+}
+.add-favourite{
+    background-color: #232265;
+    border: 2px solid;
+    border-color: white;
+    color: white;
+    border-radius: 10px;
+    height: 2rem;
+    width: 2.5rem;
+    cursor: pointer;
+    font-size: 14px;
+}
+.add-favourite:hover {
+    background-color: white;
+    color: #232265;
+    border-color: #232265;
+    transition: 0.2s;
+}
+.circle {
+    position: absolute;
+    background-color: red;
+    z-index: 1;
+    top: 3rem;
+    right: 3rem;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+.second-circle {
+    position: absolute;
+    background-color: red;
+    z-index: 1;
+    bottom: 1rem;
+    left: 2rem;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    transform: scale3d(1.05);
+    transition-duration: 0.5s;
 }

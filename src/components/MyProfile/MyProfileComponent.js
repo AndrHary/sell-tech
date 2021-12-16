@@ -19,18 +19,14 @@ function MyProfileComponent() {
                     <img src={user.profilePictureUrl} alt="avatar"></img>
                 </div>
                 <form className="personal-info-form">
-                    <MyProfileInputComponent text="Username" id="my-username" defVal={user.username}/>
-                    <MyProfileInputComponent text="Email" id="my-email" defVal={user.email}/>
-                    <MyProfileInputComponent text="Phone Number" id="my-phone" defVal={user.phone}/>
+                    <MyProfileInputComponent text="Username:" id="my-username" defVal={user.username}/>
+                    <MyProfileInputComponent text="Email:" id="my-email" defVal={user.email}/>
+                    <MyProfileInputComponent text="Phone Number:" id="my-phone" defVal={user.phone}/>
                 </form>
             </div>
             <div className="my-items">
                 <h3>7859 offers</h3>
                 <div className="card-container">
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
-                    <CardComponent />
                 </div>
             </div>
         </section>

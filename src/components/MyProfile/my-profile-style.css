@@ -57,17 +57,26 @@
     font-family: 'Noto Serif', serif;
     letter-spacing: 1px;
     font-size: 12px;
-
+    height: 3rem;
+    position: relative;
 }
 .field-my-profile label {
     margin-right: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
 }
 .field-my-profile input {
-    width: 15rem;
-    margin-right: 1rem;
-    border-radius: 5px;
+    width: 14rem;
     border-top: none;
     border-left: none;
     border-right: none;
-
+    border-bottom: 2px solid ;
+    border-color: gray;
+    font-family: 'Noto Serif', serif;
+    background-color: transparent;
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

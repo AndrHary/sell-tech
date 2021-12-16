@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 function CardComponent({ item }) {
     return (
-        <NavLink className="card-link" to={`/items/${item._id}/details`}>
+        <NavLink className="card-link"  to={`/items/${item._id}/details`}>
             <div className="card">
 
                 <div className="item-image-container">
@@ -16,7 +16,7 @@ function CardComponent({ item }) {
                     <div className="small-info">
                         <p>Category: {item.category}</p>
                         <p>Condition: {item.condition}</p>
-                        <button className="add-favourite"><i className="fas fa-heart"></i></button>
+                        <button className="add-favourite"><i className="fas fa-heart fav"></i></button>
                     </div>
 
                 </div>

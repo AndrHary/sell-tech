@@ -2,20 +2,27 @@
 import './all-items-style.css'
 import CardComponent from './CardComponent'
 import {useEffect, useState} from 'react'
+import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
 function AllItems() {
     let [items, setItems] = useState()
+    let [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         fetch('http://localhost:3050/items/all-items')
         .then(res => res.json())
         .then(data => {
             setItems(data)
+            setIsLoading(false)
         }, [])
     })
     return (
+        <>
+        {isLoading ? <LoadingSpinnerComponent/> : null}
+        <div className="circle"></div>
+        <div className="second-circle"></div>
         <section id="all-items">
             <div className="items-filter-container">
                 <div className="items">
-                    {items ? <h2>{items.length}</h2> : null}
+                    {items ? <h2>{items.length} offers for you!</h2> : null}
                     <div className="card-container">
                         {items 
                         ? items.map((x) => <CardComponent item={x}/>) 
@@ -24,6 +31,8 @@ function AllItems() {
                 </div>
             </div>
         </section>
+
+        </>
     )
 }
 export default AllItems

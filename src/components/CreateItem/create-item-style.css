@@ -17,8 +17,8 @@
     height: 60rem;
     bottom: 20rem;
     border-radius: 10px;  
-    background: white;
-
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(3rem);
 }
 .select-container{
     display: flex;
@@ -39,6 +39,8 @@
     border-top: none;
     border-left: none;
     border-right: none;
+    border-bottom:2px solid;
+    border-color: gray;
 }
 .selected{
     display: none;
@@ -88,7 +90,6 @@
 .address-phone{
     height: 80%;
     width: 100%;
-    
 }
 .address-phone-req {
     display: flex;
@@ -186,6 +187,7 @@
     margin-bottom: 1rem;
 }
 .cake {
+    opacity: 0;
     display: none;
 }
 .error {
