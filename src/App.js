@@ -15,8 +15,6 @@ function App() {
   let [userLog, setUser] = useState({})
   let onLogin = (user) => {
     setUser(user)
-    console.log(user)
-    console.log('done')
   }
   return (
     <authContext.Provider value={userLog}>

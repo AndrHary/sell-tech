@@ -25,9 +25,11 @@ function RegisterComponent({ onLogin }) {
             .then(data => {
                 let formData = new FormData(e.target)
                 userServices.register(formData, data)
+                    .then(res => res.json())
                     .then(resJson => {
-                        setIsLoading(false)
+                        console.log(resJson)
                         onLogin(resJson)
+                        setIsLoading(false)
                         history.push('/')
                     })
 

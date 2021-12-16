@@ -6,6 +6,7 @@ import { authContext } from '../../contexts/authContext'
 import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
 function CreateItem() {
     let user = useContext(authContext)
+    console.log(user)
     const history = useHistory()
     const [image, setImage] = useState({ file: {}, image: '' })
     const [isLoading, setIsLoading] = useState(false)

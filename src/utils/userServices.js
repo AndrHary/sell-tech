@@ -40,7 +40,7 @@ function register(formData, data) {
                 postCode: postCode,
                 moreInfo: moreInfo
             })
-        }).then(res => res.json())
+        })
     }
 }
 let userServices = {

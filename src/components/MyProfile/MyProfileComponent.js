@@ -7,11 +7,15 @@ import {useContext} from 'react'
 import { authContext } from '../../contexts/authContext'
 function MyProfileComponent() {
     let user = useContext(authContext)
-    let params = useParams()
+    let [userItems, setUserItems] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:3050/users/my-profile/${params.username}`)
+        fetch(`http://localhost:3050/users/my-profile/${user.username}`)
         .then(res => res.json())
-    }, [params.username])
+        .then(resJson => {
+            setUserItems(resJson)
+        })
+    }, [])
+    console.log(userItems)
     return (
         <section id="my-profile">
             <div className="personal-info">
@@ -25,8 +29,11 @@ function MyProfileComponent() {
                 </form>
             </div>
             <div className="my-items">
-                <h3>7859 offers</h3>
+                <h3>Your offers: 2</h3>
                 <div className="card-container">
+                    {userItems !== []
+                    ? userItems.map((x) => <CardComponent item={x}/>) 
+                    : null}
                 </div>
             </div>
         </section>
