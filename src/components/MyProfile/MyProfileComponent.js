@@ -17,6 +17,8 @@ function MyProfileComponent() {
     }, [])
     console.log(userItems)
     return (
+        <>
+        <div className="circle"></div>
         <section id="my-profile">
             <div className="personal-info">
                 <div className="profile-pic-container">
@@ -29,7 +31,7 @@ function MyProfileComponent() {
                 </form>
             </div>
             <div className="my-items">
-                <h3>Your offers: 2</h3>
+                <h3>Your offers: {userItems.length}</h3>
                 <div className="card-container">
                     {userItems !== []
                     ? userItems.map((x) => <CardComponent item={x}/>) 
@@ -37,6 +39,7 @@ function MyProfileComponent() {
                 </div>
             </div>
         </section>
+        </>
     )
 }
 export default MyProfileComponent

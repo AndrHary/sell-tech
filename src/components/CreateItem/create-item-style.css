@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     height: 62rem;
-
+    z-index: 2;
 }
 .create-container{
     width: 75rem;

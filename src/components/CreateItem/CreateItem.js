@@ -69,6 +69,9 @@ function CreateItem() {
 
     }
     return (
+        <>
+        <div className="circle"></div>
+        <div className="second-circle"></div>
         <section id="create-item">
             {isLoading ? <LoadingSpinnerComponent /> : null}
             <div className="create-container">
@@ -78,6 +81,7 @@ function CreateItem() {
                 <FormComponent settingImage={settingImage} submitHandler={submitHandler} image={image} />
             </div>
         </section>
+        </>
     )
 }
 export default CreateItem

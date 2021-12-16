@@ -24,7 +24,7 @@ function FormComponent({ submitHandler, settingImage, image}) {
                 </div>
                 <AddImageComponent image={image} settingImage={settingImage}/>
             </div>
-            <input className="button-submit-login create" type="submit" value="Sign Up" />
+            <input className="button-submit-login create" type="submit" value="Upload" />
         </form >
     )
 }

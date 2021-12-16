@@ -38,6 +38,11 @@
         padding-right: 1rem;
         border-radius: 5px;
     }
+    .nav-links a img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
     .search-bar{
         display: flex;
         height: 1.5rem;

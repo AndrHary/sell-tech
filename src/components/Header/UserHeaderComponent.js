@@ -1,5 +1,5 @@
 import {NavLink} from "react-router-dom"
-let UserHeaderComponent = ({username}) => {
+let UserHeaderComponent = ({username, profilePictureUrl}) => {
     return (
         <>
             <li>

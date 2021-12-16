@@ -10,6 +10,7 @@ import AllItems from './components/AllItems/AllItems';
 import CreateItem from './components/CreateItem/CreateItem';
 import MyProfileComponent from './components/MyProfile/MyProfileComponent';
 import DetailsItemComponent from './components/DetailsItemComponent/DetailsItemComponent';
+import AllItemsByCategoryComponent from './components/AllItemsByCategory/AllItemsByCategoryComponent';
 import { authContext } from './contexts/authContext.js'
 function App() {
   let [userLog, setUser] = useState({})
@@ -30,6 +31,7 @@ function App() {
           <Route path="/items/create-item" component={() => <CreateItem />}></Route>
           <Route path="/users/my-profile/:username" component={() => <MyProfileComponent/>}></Route>
           <Route path="/items/:itemId/details" component={() => <DetailsItemComponent />}></Route>
+          <Route path="/items/all-items/category/:category" component={() => <AllItemsByCategoryComponent />}></Route>
         </main>
       </div>
     </authContext.Provider>

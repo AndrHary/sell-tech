@@ -17,7 +17,7 @@ function HeaderComponent() {
                 <button className="search-btn"><i className="fas fa-search icon"></i></button>
             </div>
             <ul className="nav-links">
-            {user.username ? <UserHeaderComponent username={user.username}/> : <GuestHeaderComponent/>}
+            {user.username ? <UserHeaderComponent profilePictureUrl={user.profilePictureUrl} username={user.username}/> : <GuestHeaderComponent/>}
             </ul>
         </nav>
     )

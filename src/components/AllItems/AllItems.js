@@ -31,7 +31,6 @@ function AllItems() {
                 </div>
             </div>
         </section>
-
         </>
     )
 }

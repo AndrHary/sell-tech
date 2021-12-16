@@ -45,9 +45,9 @@ function DetailsItemComponent() {
                             <NavLink to="/" className="author-prof-a">
                                 <div className="author-cont">
                                     <div className="author-image-cont">
-                                        <img src="https://www.clipartkey.com/mpngs/m/13-132159_image-profile-pictures-for-discord.png" alt="author"></img>
+                                        <img src={item.ownerId.profilePictureUrl} alt="author"></img>
                                     </div>
-                                    <p>Iam here</p>
+                                    <p>{item.ownerId.username}</p>
                                 </div>
                             </NavLink>
                         </div>
