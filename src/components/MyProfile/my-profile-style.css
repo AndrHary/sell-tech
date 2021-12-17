@@ -14,6 +14,7 @@
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3)); 
     backdrop-filter: blur(3rem);
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -25,7 +26,8 @@
     background-color: brown;
     border-radius:50%;    
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    top: 0.5rem;
 }
 .profile-pic-container img {
     position: absolute;
@@ -45,11 +47,14 @@
 }
 .personal-info-form {
     width: 100%;
-    height: calc(100% - 15rem);
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 0px;
 }
 .field-my-profile {
     display: flex;
@@ -80,4 +85,35 @@
     position: absolute;
     bottom: 0;
     right: 0;
+}
+.profile-button-container {
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    top: 17rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.profile-button-container button {
+    background-color: darkslategray;
+    color: #fafaf6;
+    letter-spacing: 2px;
+    font-weight: 900;
+    font-size: 14px;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: #fafaf6;
+    font-family: 'Noto Serif', serif;   
+}
+.profile-button-container button:hover {
+    color: darkslategray;
+    border-color: darkslategray;
+    background-color: #fafaf6;
+    transition: 0.2s;
+    cursor: pointer;
 }

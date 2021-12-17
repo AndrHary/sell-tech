@@ -1,7 +1,7 @@
 
 import './App.css';
-import { Route } from 'react-router-dom';
-import { useState, useEffect, useContext } from "react";
+import { Route, useHistory } from 'react-router-dom';
+import { useState} from "react";
 import HeaderComponent from './components/Header/HeaderComponent';
 import WelcomeComponent from './components/WelcomePageComponent/WellcomeComponent';
 import LoginForm from './components/LoginComponent/LoginComponent';
@@ -12,10 +12,16 @@ import MyProfileComponent from './components/MyProfile/MyProfileComponent';
 import DetailsItemComponent from './components/DetailsItemComponent/DetailsItemComponent';
 import AllItemsByCategoryComponent from './components/AllItemsByCategory/AllItemsByCategoryComponent';
 import { authContext } from './contexts/authContext.js'
+import isAuth from './HOC/authHOC';
 function App() {
+  let history = useHistory()
   let [userLog, setUser] = useState({})
   let onLogin = (user) => {
     setUser(user)
+  }
+  let onLogout = () => {
+    setUser({})
+    history.push('/')
   }
   return (
     <authContext.Provider value={userLog}>
@@ -28,8 +34,8 @@ function App() {
           <Route path="/users/login" component={() => <LoginForm onLogin={onLogin} />}></Route>
           <Route path="/users/register" component={() => <RegisterComponent onLogin={onLogin} />}></Route>
           <Route path="/items/newest-items" component={() => <AllItems />}></Route>
-          <Route path="/items/create-item" component={() => <CreateItem />}></Route>
-          <Route path="/users/my-profile/:username" component={() => <MyProfileComponent/>}></Route>
+          <Route path="/items/create-item" component={isAuth(CreateItem)}></Route>
+          <Route path="/users/my-profile/:username" component={() => <MyProfileComponent onLogout={onLogout}/>}></Route>
           <Route path="/items/:itemId/details" component={() => <DetailsItemComponent />}></Route>
           <Route path="/items/all-items/category/:category" component={() => <AllItemsByCategoryComponent />}></Route>
         </main>

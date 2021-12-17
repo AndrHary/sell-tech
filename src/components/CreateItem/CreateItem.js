@@ -70,17 +70,17 @@ function CreateItem() {
     }
     return (
         <>
-        <div className="circle"></div>
-        <div className="second-circle"></div>
-        <section id="create-item">
-            {isLoading ? <LoadingSpinnerComponent /> : null}
-            <div className="create-container">
-                <div className="choose-category-container">
-                    <h2>Sell now with 3 clicks!</h2>
+            <div className="circle"></div>
+            <div className="second-circle"></div>
+            <section id="create-item">
+                {isLoading ? <LoadingSpinnerComponent /> : null}
+                <div className="create-container">
+                    <div className="choose-category-container">
+                        <h2>Sell now with 3 clicks!</h2>
+                    </div>
+                    <FormComponent settingImage={settingImage} submitHandler={submitHandler} image={image} />
                 </div>
-                <FormComponent settingImage={settingImage} submitHandler={submitHandler} image={image} />
-            </div>
-        </section>
+            </section>
         </>
     )
 }
