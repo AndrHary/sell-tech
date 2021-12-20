@@ -1,27 +1,16 @@
 import { useEffect, useState } from "react"
 
 function AddImageComponent({ image, settingImage }) {
-    const [imageUrl, setImageUrl] = useState(image.image)
-    useEffect(() => {
-        if (image.file.name) {
-            image.file.arrayBuffer()
-                .then(() => {
-                    const img = URL.createObjectURL(image.file)
-                    setImageUrl(img)
-                })
-
-
-        }
-    }, [image.file])
+    const [imageUrl, setImageUrl] = useState('')
     const changeHandler = (e) => {
         if (e.target.files && e.target.files[0]) {
-            const image = { file: e.target.files[0] }
-            settingImage(image)
+            settingImage(e.target.files[0])
+            setImageUrl(URL.createObjectURL(e.target.files[0]))
         }
     }
     const removeImage = () => {
         setImageUrl('')
-        settingImage({ file: {}, image: `` })
+        settingImage(null)
     }
     return (
         <div className="form-image-container">
@@ -30,7 +19,7 @@ function AddImageComponent({ image, settingImage }) {
                 <div className="button-text-cont">
                     {imageUrl &&
                         <>
-                            <img className="product-img" src={image.image} alt="product" />
+                            <img className="product-img" src={imageUrl} alt="product" />
                             <button type="button" onClick={removeImage}>x</button>
                         </>}
                     {imageUrl || <>

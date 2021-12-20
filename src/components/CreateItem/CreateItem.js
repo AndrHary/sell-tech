@@ -4,11 +4,13 @@ import FormComponent from './FormComponent'
 import { useHistory } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
 import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
+import postImage from '../../utils/postImage'
+import createItem from '../../utils/createItem'
 function CreateItem() {
     let user = useContext(authContext)
     console.log(user)
     const history = useHistory()
-    const [image, setImage] = useState({ file: {}, image: '' })
+    const [image, setImage] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const settingImage = (file) => {
         setImage(file)
@@ -17,52 +19,12 @@ function CreateItem() {
         setIsLoading(true)
         e.preventDefault()
         const fData = new FormData()
-        fData.append('file', image.file)
-        fData.append('upload_preset', 'xmjio1bi')
-        fData.append('cloud_name', 'dwwwjp9qb')
-        fetch(`https://api.cloudinary.com/v1_1/dwwwjp9qb/image/upload`, {
-            method: 'POST',
-            body: fData
-        })
-            .then(res => res.json())
+        postImage(fData, image)
             .then(data => {
                 const formData = new FormData(e.target)
-                let category = formData.get('category')
-                let title = formData.get('title')
-                let description = formData.get('description')
-                let condition = formData.get('condition')
-                let price = formData.get('price')
-                let currency = formData.get('currency')
-                let phone = formData.get('phone')
-                let country = formData.get('country')
-                let town = formData.get('town')
-                let postCode = formData.get('post-code')
-                let address = formData.get('address')
-                let imageUrl = data.secure_url
-                fetch('http://localhost:3050/items/create-item', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Authorization': user.authToken
-                    },
-                    body: JSON.stringify({
-                        category: category,
-                        title: title,
-                        description: description,
-                        condition: condition,
-                        price: price,
-                        currency: currency,
-                        phone: phone,
-                        country: country,
-                        town: town,
-                        postCode: postCode,
-                        address: address,
-                        imageUrl: imageUrl
-                    })
-                }).then(res => res.json())
+                   createItem(formData, user, data)
                     .then(item => {
                         setIsLoading(false)
-                        console.log(item)
                         history.push('/items/newest-items')
                     })
             })
