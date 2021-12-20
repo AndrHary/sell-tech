@@ -37,7 +37,7 @@ function CreateItem() {
                 let country = formData.get('country')
                 let town = formData.get('town')
                 let postCode = formData.get('post-code')
-                let additionalInformation = formData.get('more-info')
+                let address = formData.get('address')
                 let imageUrl = data.secure_url
                 fetch('http://localhost:3050/items/create-item', {
                     method: 'POST',
@@ -56,7 +56,7 @@ function CreateItem() {
                         country: country,
                         town: town,
                         postCode: postCode,
-                        additionalInformation: additionalInformation,
+                        address: address,
                         imageUrl: imageUrl
                     })
                 }).then(res => res.json())

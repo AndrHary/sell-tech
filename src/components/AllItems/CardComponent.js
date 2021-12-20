@@ -19,7 +19,7 @@ function CardComponent({ item }) {
                     <div className="small-info">
                         <p>Category: {item.category}</p>
                         <p>Condition: {item.condition}</p>
-                        {user.authToken
+                        {user.authToken 
                             ? <button className="add-favourite"><i className="fas fa-heart fav"></i></button>
                             : null
                         }

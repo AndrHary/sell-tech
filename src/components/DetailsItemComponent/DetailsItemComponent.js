@@ -2,9 +2,17 @@ import './details-item-style.css'
 import { NavLink, useParams } from 'react-router-dom'
 import PhotoTitleComponent from './PhotoTitleComponent'
 import { useState, useEffect } from 'react'
+import {useHistory} from 'react-router-dom'
 function DetailsItemComponent() {
     let params = useParams()
     let [item, setItem] = useState()
+    let history = useHistory()
+    let onEdit =  () => {
+        history.push(`/items/${item._id}/edit`)
+    }
+    let onDelete = () => {
+        history.push(`/items/${item._id}/delete`)
+    }
     useEffect(() => {
         fetch(`http://localhost:3050/items/${params.itemId}/details`)
         .then(res => res.json())
@@ -19,6 +27,12 @@ function DetailsItemComponent() {
     ? <section id="details">
             <div className="details-container">
                 <PhotoTitleComponent item={item} />
+                <div className="edit-delete-item">
+                    <div className="edit-del-cont">
+                      <button onClick={onEdit}>Edit</button>
+                    <button onClick={onDelete}>Delete</button>  
+                    </div>
+                </div>
                 <hr></hr>
                 <div className="details-information-container">
                     <div className="desc-cont">

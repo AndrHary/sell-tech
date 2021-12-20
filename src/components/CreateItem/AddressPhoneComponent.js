@@ -17,10 +17,10 @@ function AddressPhoneComponent() {
             </div>
             <div className={sameAddress !== null ? "address-phone" : "cake"}>
                 <InputComponent type="text" name="phone" text="Phone Number:" defaultValue={user.phone} sameAddress={sameAddress} />
-                <InputComponent name="country" text="Coutry" type="text" defaultValue={user.country} sameAddress={sameAddress} />
-                <InputComponent name="town" text="City/Town" type="text" defaultValue={user.city} sameAddress={sameAddress}/>
-                <InputComponent name="post-code" text="Post Code" type="number" defaultValue={user.postCode} sameAddress={sameAddress}/>
-                <InputComponent name="more-info" text="Additional Information" type="text" defaultValue={user.moreInfo} sameAddress={sameAddress}/>
+                <InputComponent name="country" text="Coutry:" type="text" defaultValue={user.country} sameAddress={sameAddress} />
+                <InputComponent name="town" text="City/Town:" type="text" defaultValue={user.city} sameAddress={sameAddress}/>
+                <InputComponent name="post-code" text="Post Code:" type="number" defaultValue={user.postCode} sameAddress={sameAddress}/>
+                <InputComponent name="address" text="Address:" type="text" defaultValue={user.moreInfo} sameAddress={sameAddress}/>
             </div>
         </div>
     )

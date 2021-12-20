@@ -11,7 +11,7 @@ function FormComponent({ submitHandler, settingImage, image}) {
             <div className="input-container">
                 <div className="item-information">
                     <div className="create-side-inputs">
-                        <SelectInputComponent name="category" text="Choose a category:" options={['', 'Phone', 'Computer', 'Accessory', 'Parts']} />
+                        <SelectInputComponent name="category" text="Choose a category:" options={['Phone', 'Computer', 'Accessory', 'Parts']} />
                         <InputComponent text="Title:" type="text" name="title" />
                         <InputComponent text="Description:" type="text" name="description" />
                     </div>
