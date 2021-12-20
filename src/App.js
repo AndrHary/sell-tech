@@ -36,7 +36,7 @@ function App() {
           <Route path="/users/register" component={() => <RegisterComponent onLogin={onLogin} />}></Route>
           <Route path="/items/newest-items" component={() => <AllItems />}></Route>
           <Route path="/items/create-item" component={isAuth(CreateItem)}></Route>
-          <Route path="/users/my-profile/:username" component={() => <MyProfileComponent onLogout={onLogout}/>}></Route>
+          <Route path="/users/:username/profile" component={() => <MyProfileComponent onLogout={onLogout}/>}></Route>
           <Route path="/items/:itemId/details" component={() => <DetailsItemComponent />}></Route>
           <Route path="/items/all-items/category/:category" component={() => <AllItemsByCategoryComponent />}></Route>
           <Route path="/items/:itemId/edit" component={() => <EditComponent />}></Route>

@@ -6,7 +6,7 @@ let UserHeaderComponent = ({username, profilePictureUrl, onLogout}) => {
                 <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to="/items/create-item">Sell</NavLink>
             </li>
             <li>
-                <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to={`/users/my-profile/${username}`}>{username}</NavLink>
+                <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to={`/users/${username}/profile`}>{username}</NavLink>
             </li>
             <li>
                 <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to="/items/newest-items">Offers</NavLink>

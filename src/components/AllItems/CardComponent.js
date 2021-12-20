@@ -3,6 +3,16 @@ import { NavLink } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
 function CardComponent({ item }) {
     let user = useContext(authContext)
+    let addFavoureHandler = () => {
+        fetch(`http://localhost:3050/items/${item._id}/watching`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Authorization": user.authToken
+            }
+        })
+            .then(res => res.json())
+    }
     return (
         <NavLink className="card-link" to={`/items/${item._id}/details`}>
             <div className="card">
@@ -19,8 +29,10 @@ function CardComponent({ item }) {
                     <div className="small-info">
                         <p>Category: {item.category}</p>
                         <p>Condition: {item.condition}</p>
-                        {user.authToken 
-                            ? <button className="add-favourite"><i className="fas fa-heart fav"></i></button>
+                        {user.authToken
+                            ? <button onClick={addFavoureHandler} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
+                                <i className="fas fa-heart fav"></i>
+                            </button>
                             : null
                         }
                     </div>

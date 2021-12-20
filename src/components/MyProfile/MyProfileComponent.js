@@ -2,22 +2,26 @@ import { useEffect, useState } from 'react'
 import CardComponent from '../AllItems/CardComponent'
 import './my-profile-style.css'
 import MyProfileInputComponent from './MyProfileInputComponent'
-import { useParams } from 'react-router-dom'
 import { useContext } from 'react'
 import { authContext } from '../../contexts/authContext'
+import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
+import { useParams } from 'react-router'
 function MyProfileComponent({onLogout}) {
-    let user = useContext(authContext)
-    let [userItems, setUserItems] = useState([])
+    const user = useContext(authContext)
+    const [userItems, setUserItems] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const params = useParams()
     useEffect(() => {
-        fetch(`http://localhost:3050/users/my-profile/${user.username}`)
+        fetch(`http://localhost:3050/users/${user.username}/profile`)
             .then(res => res.json())
             .then(resJson => {
                 setUserItems(resJson)
+                setIsLoading(false)
             })
     }, [])
-    console.log(userItems)
     return (
         <>
+       {isLoading ? <LoadingSpinnerComponent /> : null}
             <div className="circle"></div>
             <section id="my-profile">
                 <div className="personal-info">
@@ -29,11 +33,13 @@ function MyProfileComponent({onLogout}) {
                         <MyProfileInputComponent text="Email:" id="my-email" defVal={user.email} />
                         <MyProfileInputComponent text="Phone Number:" id="my-phone" defVal={user.phone} />
                     </form>
-                    <div className="profile-button-container">
+                    {user.username === params.username
+                    ? <div className="profile-button-container">
                         <button onClick={onLogout}>Log Out</button>
                         <button>Edit</button>
                         <button>See More</button>
                     </div>
+                    : null}
                 </div>
                 <div className="my-items">
                     <h3>Your offers: {userItems.length}</h3>
