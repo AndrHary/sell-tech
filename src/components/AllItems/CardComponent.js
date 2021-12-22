@@ -29,14 +29,7 @@ function CardComponent({ item }) {
                     <div className="small-info">
                         <p>Category: {item.category}</p>
                         <p>Condition: {item.condition}</p>
-                        {user.authToken
-                            ? <button onClick={addFavoureHandler} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
-                                <i className="fas fa-heart fav"></i>
-                            </button>
-                            : null
-                        }
                     </div>
-
                 </div>
             </div>
         </NavLink>

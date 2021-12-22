@@ -12,7 +12,7 @@ let UserHeaderComponent = ({username, profilePictureUrl, onLogout}) => {
                 <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to="/items/newest-items">Offers</NavLink>
             </li>
             <li>
-                <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to="/users/items/:username/favorite"><i className="fas fa-heart"></i></NavLink>
+                <NavLink activeStyle={{ color: "#232265", backgroundColor: "#FAF6F6" }} to={`/items/${username}/favourite`}><i className="fas fa-heart"></i></NavLink>
             </li>
         </>
     )

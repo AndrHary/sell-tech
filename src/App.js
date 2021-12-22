@@ -14,6 +14,7 @@ import AllItemsByCategoryComponent from './components/AllItemsByCategory/AllItem
 import { authContext } from './contexts/authContext.js'
 import isAuth from './HOC/authHOC';
 import EditComponent from './components/EditComponent/EditComponent';
+import FavouriteComponent from './components/FavouriteComponent/FavouriteComponent';
 function App() {
   let history = useHistory()
   let [userLog, setUser] = useState({})
@@ -40,6 +41,7 @@ function App() {
           <Route path="/items/:itemId/details" component={() => <DetailsItemComponent />}></Route>
           <Route path="/items/all-items/category/:category" component={() => <AllItemsByCategoryComponent />}></Route>
           <Route path="/items/:itemId/edit" component={() => <EditComponent />}></Route>
+          <Route path="/items/:username/favourite" component={() => <FavouriteComponent />}></Route>
         </main>
       </div>
     </authContext.Provider>
