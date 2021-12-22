@@ -4,6 +4,9 @@ import PhotoTitleComponent from './PhotoTitleComponent'
 import { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
+import onDeleteHandler from '../../utils/onDeleteHandler'
+import addFavoureHandler from '../../utils/addFavoureHandler'
+import { BASE_URL } from '../../constants'
 function DetailsItemComponent() {
     const params = useParams()
     const [item, setItem] = useState()
@@ -13,24 +16,8 @@ function DetailsItemComponent() {
     const onEdit = () => {
         history.push(`/items/${item._id}/edit`)
     }
-    const onDelete = () => {
-        history.push(`/items/${item._id}/delete`)
-    }
-    const addFavoureHandler = (e) => {
-        fetch(`http://localhost:3050/items/${item._id}/watching`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-Authorization": user.authToken
-            }
-        })
-            .then(res => res.json())
-            .then(resJson => {
-                setWatchingUser(resJson.watchingUser.length)
-            })
-    }
     useEffect(() => {
-        fetch(`http://localhost:3050/items/${params.itemId}/details`)
+        fetch(`${BASE_URL}/items/${params.itemId}/details`)
             .then(res => res.json())
             .then(data => {
                 setItem(data)
@@ -50,10 +37,10 @@ function DetailsItemComponent() {
                                 {item.ownerId.username === user.username
                                     ? <div className="edit-del-cont">
                                         <button onClick={onEdit}>Edit</button>
-                                        <button onClick={onDelete}>Delete</button>
+                                        <button onClick={onDeleteHandler(item, user, history)}>Delete</button>
                                     </div>
                                     : <>
-                                        <button onClick={addFavoureHandler} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
+                                        <button onClick={(e) => addFavoureHandler(e, item, user, setWatchingUser)} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
                                             <i className="fas fa-heart fav"></i>
                                         </button>
                                         <p>Watching now: {watchingUser}</p>

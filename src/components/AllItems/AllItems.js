@@ -3,11 +3,12 @@ import './all-items-style.css'
 import CardComponent from './CardComponent'
 import {useEffect, useState} from 'react'
 import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerComponent'
+import {BASE_URL} from '../../constants'
 function AllItems() {
-    let [items, setItems] = useState()
+    let [items, setItems] = useState([])
     let [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:3050/items/all-items')
+        fetch(`${BASE_URL}/items/all-items`)
         .then(res => res.json())
         .then(data => {
             setItems(data)

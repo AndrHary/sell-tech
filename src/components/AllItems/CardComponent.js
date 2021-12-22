@@ -29,6 +29,7 @@ function CardComponent({ item }) {
                     <div className="small-info">
                         <p>Category: {item.category}</p>
                         <p>Condition: {item.condition}</p>
+                        <p>In {item.watchingUser.length} people favourite list.</p>
                     </div>
                 </div>
             </div>

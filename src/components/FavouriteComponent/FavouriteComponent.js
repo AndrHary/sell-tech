@@ -3,12 +3,13 @@ import CardComponent from "../AllItems/CardComponent"
 import { useContext, useEffect, useState } from "react"
 import { authContext } from "../../contexts/authContext"
 import { useParams } from 'react-router-dom'
+import { BASE_URL } from "../../constants"
 function FavouriteComponent() {
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const params = useParams()
     useEffect(() => {
-        fetch(`http://localhost:3050/items/${params.username}/favourite`)
+        fetch(`${BASE_URL}/items/${params.username}/favourite`)
             .then(res => res.json())
             .then(resJson => {
                 console.log(resJson)

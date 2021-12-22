@@ -1,3 +1,5 @@
+import { BASE_URL } from "../constants"
+
 function editItem(formData, user, data, itemId) {
     let category = formData.get('category')
     let title = formData.get('title')
@@ -17,7 +19,7 @@ function editItem(formData, user, data, itemId) {
         imageUrl = undefined
     }
      
-    return fetch(`http://localhost:3050/items/${itemId}/edit`, {
+    return fetch(`${BASE_URL}/items/${itemId}/edit`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

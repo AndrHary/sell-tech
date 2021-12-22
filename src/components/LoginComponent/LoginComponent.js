@@ -4,29 +4,16 @@ import InputComponent from "../RegisterComponent/InputComponent"
 import userServices from '../../utils/userServices.js'
 import LoadingSpinnerComponent from "../LoadingSpinnerComponent/LoadingSpinnerComponent"
 import { useState } from "react"
+import loginHandler from "../../utils/loginHandler"
 function LoginForm({ onLogin }) {
     let history = useHistory()
     let [isLoading, setIsLoading] = useState()
-    function submitHandler(e) {
-        setIsLoading(true)
-        e.preventDefault()
-        let formData = new FormData(e.currentTarget)
-        let email = formData.get('email')
-        let password = formData.get('password')
-        userServices.login(email, password)
-            .then(user => {
-                setIsLoading(false)
-                console.log(user)
-                onLogin(user)
-                history.push('/')
-            })
-    }
     return (
         <div className="login-container">
             {isLoading
                 ? <LoadingSpinnerComponent />
                 : null}
-            <form id="login-form" action="" method="" onSubmit={submitHandler}>
+            <form id="login-form" action="" method="" onSubmit={(e) => loginHandler(setIsLoading, e, onLogin, history)}>
                 <fieldset>
                     <h2>Log In</h2>
                     <InputComponent name="email" type="text" text="Email" />

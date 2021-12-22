@@ -6,6 +6,7 @@ import { itemContext } from "../../contexts/itemContext"
 import postImage from "../../utils/postImage"
 import editItem from "../../utils/editItem"
 import { authContext } from "../../contexts/authContext"
+import { BASE_URL } from "../../constants"
 const EditComponent = () => {
     const params = useParams()
     const user = useContext(authContext)
@@ -14,7 +15,7 @@ const EditComponent = () => {
     const [isLoading, setIsLoading] = useState(true)
     const history = useHistory()
     useEffect(() => {
-        fetch(`http://localhost:3050/items/${params.itemId}/edit`)
+        fetch(`${BASE_URL}/items/${params.itemId}/edit`)
             .then(res => res.json())
             .then(data => {
                 setItem(data)

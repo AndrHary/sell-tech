@@ -1,3 +1,5 @@
+import { BASE_URL } from "../constants"
+
 function login(email, password) {
     return fetch('http://localhost:3050/users/login', {
         method: 'POST',
@@ -24,7 +26,7 @@ function register(formData, data) {
     let postCode = formData.get('post-code')
     let moreInfo = formData.get('more-info')
     if (password === rePass) {
-        return fetch('http://localhost:3050/users/register', {
+        return fetch(`${BASE_URL}/users/register`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

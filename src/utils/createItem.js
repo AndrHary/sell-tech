@@ -1,3 +1,5 @@
+import { BASE_URL } from "../constants"
+
 function createItem(formData, user, data) {
     let category = formData.get('category')
     let title = formData.get('title')
@@ -17,7 +19,7 @@ function createItem(formData, user, data) {
         imageUrl = undefined
     }
      
-    return fetch('http://localhost:3050/items/create-item', {
+    return fetch(`${BASE_URL}/items/create-item`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

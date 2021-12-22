@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import LoadingSpinnerComponent from "../LoadingSpinnerComponent/LoadingSpinnerComponent"
 import CardComponent from "../AllItems/CardComponent"
+import {BASE_URL} from "../../constants"
 function AllItemsByCategoryComponent() {
     let params = useParams()
     let [isLoading, setIsLoading] = useState(true)
     let [items, setItems] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:3050/items/all-items/category/${params.category}`)
+        fetch(`${BASE_URL}/items/all-items/category/${params.category}`)
             .then(res => res.json())
             .then(resJson => {
                 setItems(resJson)
