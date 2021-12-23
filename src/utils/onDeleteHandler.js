@@ -6,7 +6,8 @@ const onDeleteHandler = (item, user, history) => {
     .then(res => res.json())
     .then(resJson => {
         if (resJson.res == 'deleted') {
-            history.push(`/users/${user._id}/profile`)
+            console.log(resJson)
+            history.push(`/items/newest-items`)
         }
     })
 }

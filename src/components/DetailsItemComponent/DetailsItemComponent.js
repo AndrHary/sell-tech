@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
 import onDeleteHandler from '../../utils/onDeleteHandler'
 import addFavoureHandler from '../../utils/addFavoureHandler'
-import { BASE_URL } from '../../constants'
 function DetailsItemComponent() {
     const params = useParams()
     const [item, setItem] = useState()
@@ -17,7 +16,7 @@ function DetailsItemComponent() {
         history.push(`/items/${item._id}/edit`)
     }
     useEffect(() => {
-        fetch(`${BASE_URL}/items/${params.itemId}/details`)
+        fetch(`http://localhost:3050/items/${params.itemId}/details`)
             .then(res => res.json())
             .then(data => {
                 setItem(data)
@@ -37,7 +36,7 @@ function DetailsItemComponent() {
                                 {item.ownerId.username === user.username
                                     ? <div className="edit-del-cont">
                                         <button onClick={onEdit}>Edit</button>
-                                        <button onClick={onDeleteHandler(item, user, history)}>Delete</button>
+                                        <button onClick={() => onDeleteHandler(item, user, history)}>Delete</button>
                                     </div>
                                     : <>
                                         <button onClick={(e) => addFavoureHandler(e, item, user, setWatchingUser)} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
