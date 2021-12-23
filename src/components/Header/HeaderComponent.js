@@ -11,11 +11,7 @@ function HeaderComponent() {
             <div className="logo">
                 <NavLink to="/">SellTech</NavLink>
             </div>
-            <div className="search-bar">
-
-                <input type="text" id="search" placeholder="Search..." />
-                <button className="search-btn"><i className="fas fa-search icon"></i></button>
-            </div>
+            
             <ul className="nav-links">
             {user.username ? <UserHeaderComponent profilePictureUrl={user.profilePictureUrl} username={user.username}/> : <GuestHeaderComponent/>}
             </ul>

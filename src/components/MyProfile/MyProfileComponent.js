@@ -43,8 +43,6 @@ function MyProfileComponent({ onLogout }) {
                             {user.username === params.username
                                 ? <div className="profile-button-container">
                                     <button onClick={onLogout}>Log Out</button>
-                                    <button>Edit</button>
-                                    <button>See More</button>
                                 </div>
                                 : null}
                         </div>
