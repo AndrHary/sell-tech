@@ -7,45 +7,62 @@ import LoadingSpinnerComponent from '../LoadingSpinnerComponent/LoadingSpinnerCo
 import userServices from '../../utils/userServices.js'
 import postImage from '../../utils/postImage.js'
 import RegisterFormComponent from './RegisterFormComponent'
+import userValidationError from '../../utils/userValidationError'
 function RegisterComponent({ onLogin }) {
-    let history = useHistory()
-    let [image, setImage] = useState([])
-    let [shownImage, setShownImage] = useState('https://cdn.onlinewebfonts.com/svg/img_117244.png')
-    let [isLoading, setIsLoading] = useState(false)
-    let changePhotoHandler = (e) => {
+    const history = useHistory()
+    const [image, setImage] = useState(null)
+    const [shownImage, setShownImage] = useState('https://cdn.onlinewebfonts.com/svg/img_117244.png')
+    const [isLoading, setIsLoading] = useState(false)
+    const [errors, setErrors] = useState([])
+    const changePhotoHandler = (e) => {
         if (e.target.files && e.target.files[0]) {
             setImage(e.target.files[0])
             setShownImage(URL.createObjectURL(e.target.files[0]))
         }
     }
-    let submitHandler = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault()
         setIsLoading(true)
         let fData = new FormData()
         postImage(fData, image)
             .then(data => {
                 let formData = new FormData(e.target)
-                userServices.register(formData, data)
-                    .then(res => res.json())
+                userServices.register(formData, data, setErrors, errors)
                     .then(resJson => {
-                        console.log(resJson)
-                        onLogin(resJson)
-                        setIsLoading(false)
-                        history.push('/')
+                        if (resJson.username) {
+                            console.log(resJson)
+                            onLogin(resJson)
+                            setIsLoading(false)
+                            history.push('/')
+                        } else {
+                            throw resJson
+                        }
                     })
+                    .catch(error => {
+                        setIsLoading(false)
+                        console.log(error)
+                        setErrors(userValidationError(error.message))
 
+                    })
             })
     }
+    console.log(errors)
     return (
         <>
             <div className="circle"></div>
             <div className="second-circle"></div>
             <div className="register-container">
-
+              {errors.length > 0 
+              ? <div className="error-container">
+                  {errors.map((x) => {
+                     return <p>! {x}</p>
+                  })}
+               </div>
+               : null}
                 {isLoading ? <LoadingSpinnerComponent /> : null}
-                <RegisterFormComponent submitHandler={submitHandler} changePhotoHandler={changePhotoHandler} shownImage={shownImage}/>
+                <RegisterFormComponent submitHandler={submitHandler} changePhotoHandler={changePhotoHandler} shownImage={shownImage} />
             </div>
-            </>
-            )
+        </>
+    )
 }
-            export default RegisterComponent
+export default RegisterComponent

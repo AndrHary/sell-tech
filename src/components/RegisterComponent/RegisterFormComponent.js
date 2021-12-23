@@ -23,19 +23,21 @@ function RegisterFormComponent({submitHandler, changePhotoHandler, shownImage}) 
                                         </span>
                                     </div>
                                 </p>
-                                <InputComponent name="phone-number" text="Phone Number:" type="number" />
+                                <InputComponent name="phone-number" text="Phone Number:" type="text" />
                             </div>
                             <div className="register-one-side">
                                 <InputComponent name="country" text="Coutry:" type="text" />
                                 <InputComponent name="town" text="City/Town:" type="text" />
                                 <InputComponent name="post-code" text="Post Code:" type="number" />
-                                <InputComponent name="more-info" text="Additional Information:" type="text" placeHolder="ex: st. Mir 4, 4th floor, ap. 3" />
+                                <InputComponent name="more-info" text="Address::" type="text" placeHolder="ex: st. Mir 4, 4th floor, ap. 3" />
                             </div>
                         </div>
-                        <input className="button-submit-login" type="submit" value="Sign Up" />
+                        <div className="butto-redir-container">
+                          <input className="button-submit-login" type="submit" value="Sign Up" />
                         <div className="login-redirect">
                             <hr></hr>
                             <h6>If you have account Log In from <NavLink to="/users/login">here</NavLink>.</h6>
+                        </div>  
                         </div>
                     </fieldset>
                 </form>

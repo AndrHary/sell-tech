@@ -16,6 +16,12 @@ function login(email, password) {
     })
 }
 function register(formData, data) {
+    let profilePictureUrl = ''
+    if (data) {
+        profilePictureUrl = data.secure_url
+    } else {
+        profilePictureUrl = undefined
+    }
     let username = formData.get('username')
     let email = formData.get('email')
     let password = formData.get('password')
@@ -25,7 +31,6 @@ function register(formData, data) {
     let city = formData.get('town')
     let postCode = formData.get('post-code')
     let moreInfo = formData.get('more-info')
-    if (password === rePass) {
         return fetch(`${BASE_URL}/users/register`, {
             method: 'POST',
             headers: {
@@ -35,7 +40,8 @@ function register(formData, data) {
                 username: username,
                 email: email,
                 password: password,
-                profilePictureUrl: data.secure_url,
+                rePass: rePass,
+                profilePictureUrl: profilePictureUrl,
                 phone: phone,
                 country: country,
                 city: city,
@@ -43,8 +49,14 @@ function register(formData, data) {
                 moreInfo: moreInfo
             })
         })
-    }
-}
+        .then(res => {
+             return res.json()
+        })
+        .catch(error => {
+            throw error.message
+        }) 
+    } 
+
 let userServices = {
     login,
     register
