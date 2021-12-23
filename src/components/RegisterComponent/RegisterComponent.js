@@ -8,6 +8,7 @@ import userServices from '../../utils/userServices.js'
 import postImage from '../../utils/postImage.js'
 import RegisterFormComponent from './RegisterFormComponent'
 import userValidationError from '../../utils/userValidationError'
+import ErrorComponent from '../ErrorComponent'
 function RegisterComponent({ onLogin }) {
     const history = useHistory()
     const [image, setImage] = useState(null)
@@ -52,13 +53,7 @@ function RegisterComponent({ onLogin }) {
             <div className="circle"></div>
             <div className="second-circle"></div>
             <div className="register-container">
-              {errors.length > 0 
-              ? <div className="error-container">
-                  {errors.map((x) => {
-                     return <p>! {x}</p>
-                  })}
-               </div>
-               : null}
+                <ErrorComponent errors={errors} />
                 {isLoading ? <LoadingSpinnerComponent /> : null}
                 <RegisterFormComponent submitHandler={submitHandler} changePhotoHandler={changePhotoHandler} shownImage={shownImage} />
             </div>

@@ -8,6 +8,12 @@ const userValidationError = (err) => {
      if (err === 'Passwords must be identical!') {
          errorArr.push(err)
      }
+     if (err.includes('Cannot read poperty')) {
+         errorArr.push('The username or password are invalid')
+     }
+     if (err === 'The username or password are invalid') {
+         errorArr.push(err)
+     }
      return errorArr
 }
 export default userValidationError

@@ -1,7 +1,7 @@
 import { BASE_URL } from "../constants"
 
 function login(email, password) {
-    return fetch('http://localhost:3050/users/login', {
+    return fetch(`${BASE_URL}/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -11,8 +11,10 @@ function login(email, password) {
             password: password
         }),
     }).then(res => {
-        console.log(res)
         return res.json()
+    })
+    .catch(error => {
+        throw {message: error.message}
     })
 }
 function register(formData, data) {

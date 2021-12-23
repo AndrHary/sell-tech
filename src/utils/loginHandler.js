@@ -1,5 +1,6 @@
 import userServices from "./userServices"
-function loginHandler(setIsLoading, e, onLogin, history) {
+import userValidationError from "./userValidationError"
+function loginHandler(setIsLoading, e, onLogin, history, setErrors) {
     setIsLoading(true)
     e.preventDefault()
     let formData = new FormData(e.currentTarget)
@@ -7,10 +8,18 @@ function loginHandler(setIsLoading, e, onLogin, history) {
     let password = formData.get('password')
     userServices.login(email, password)
         .then(user => {
+            if (user.username) {
             setIsLoading(false)
-            console.log(user)
             onLogin(user)
-            history.push('/')
+            history.push('/')  
+            } else {
+                throw {message: 'The username or password are invalid'}
+            }
+        })
+        .catch(error => {
+            console.log(error)
+            setErrors(userValidationError(error.message))
+            setIsLoading(false)
         })
 }
 export default loginHandler
