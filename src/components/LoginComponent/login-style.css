@@ -3,6 +3,7 @@
     justify-content: center;
     background-color: #c3d9e3;
     height: calc(100vh - 4rem);
+    align-items: center;
 }
 .login-container fieldset {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
@@ -15,6 +16,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 .field-login {
     display: flex;

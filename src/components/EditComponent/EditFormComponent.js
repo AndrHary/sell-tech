@@ -1,11 +1,9 @@
 import SelectInputComponent from "../CreateItem/SelectInputComponent"
 import InputComponent from "../RegisterComponent/InputComponent"
-import AddressPhoneComponent from "../CreateItem/AddressPhoneComponent"
-import AddImageComponent from "../CreateItem/AddImageComponent"
 import EditImageComponent from "./EditImageComponent"
 import { useContext } from "react"
 import { itemContext } from "../../contexts/itemContext"
-const EditFormComponent = ({image, settingImage, submitHandler }) => {
+const EditFormComponent = ({image, settingImage, submitHandler}) => {
     const item = useContext(itemContext)
     const categoryArray = ['Phone', 'Computer', 'Accessory', 'Parts'].filter((x) => x !== item.category)
     const conditionArray = ['Brand new', 'Just opened', 'Used', 'For Parts', 'Fully not working'].filter((x) => x !== item.condition)

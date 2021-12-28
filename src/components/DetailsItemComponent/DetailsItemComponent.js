@@ -15,6 +15,19 @@ function DetailsItemComponent() {
     const onEdit = () => {
         history.push(`/items/${item._id}/edit`)
     }
+    const addFavoureHandler = (e) => {
+        fetch(`http://localhost:3050/items/${item._id}/watching`, {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+                 "X-Authorization": user.authToken
+             }
+         })
+             .then(res => res.json())
+             .then(resJson => {
+                 setWatchingUser(resJson.watchingUser.length)
+             })
+     }
     useEffect(() => {
         fetch(`http://localhost:3050/items/${params.itemId}/details`)
             .then(res => res.json())
@@ -39,7 +52,7 @@ function DetailsItemComponent() {
                                         <button onClick={() => onDeleteHandler(item, user, history)}>Delete</button>
                                     </div>
                                     : <>
-                                        <button onClick={(e) => addFavoureHandler(e, item, user, setWatchingUser)} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
+                                        <button onClick={addFavoureHandler} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
                                             <i className="fas fa-heart fav"></i>
                                         </button>
                                         <p>Watching now: {watchingUser}</p>

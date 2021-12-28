@@ -19,6 +19,7 @@ function LoginForm({ onLogin }) {
                 : null}
             <form id="login-form" action="" method="" onSubmit={(e) => loginHandler(setIsLoading, e, onLogin, history, setErrors)}>
                 <fieldset>
+                <ErrorComponent errors={errors}/>
                     <h2>Log In</h2>
                     <InputComponent name="email" type="text" text="Email" />
                     <InputComponent name="password" type="password" text="Password" />

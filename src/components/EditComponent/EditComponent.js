@@ -7,6 +7,7 @@ import postImage from "../../utils/postImage"
 import editItem from "../../utils/editItem"
 import { authContext } from "../../contexts/authContext"
 import { BASE_URL } from "../../constants"
+import editSubmitHandler from "../../utils/editSubmitHandler"
 const EditComponent = () => {
     const params = useParams()
     const user = useContext(authContext)
@@ -25,26 +26,7 @@ const EditComponent = () => {
     const settingImage = (file) => {
         setImage(file)
     }
-    const submitHandler = (e) => {
-        e.preventDefault()
-        setIsLoading(true)
-        let fData = new FormData()
-        postImage(fData, image)
-        .then(data => {
-            console.log(data)
-            let formData = new FormData(e.target)
-            editItem(formData, user, data, params.itemId)
-            .then(resJson => {
-                history.push(`/items/${params.itemId}/details`)
-                setIsLoading(false)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-        })
-    }
     return (
-
         <itemContext.Provider value={item}>
             {item ?
                 <>
@@ -56,7 +38,7 @@ const EditComponent = () => {
                             <div className="choose-category-container">
                                 <h2>Sell now with 3 clicks!</h2>
                             </div>
-                            <EditFormComponent image={image} settingImage={settingImage} submitHandler={submitHandler} />
+                            <EditFormComponent image={image} settingImage={settingImage} submitHandler={(e) => editSubmitHandler(e, user, params, image, history, setIsLoading)} />
                         </div>
                     </section>
 
