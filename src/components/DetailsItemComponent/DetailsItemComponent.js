@@ -6,10 +6,12 @@ import { useHistory } from 'react-router-dom'
 import { authContext } from '../../contexts/authContext'
 import onDeleteHandler from '../../utils/onDeleteHandler'
 import addFavoureHandler from '../../utils/addFavoureHandler'
+import CreateCommentComponent from './CreateCommentComponet'
 function DetailsItemComponent() {
     const params = useParams()
     const [item, setItem] = useState()
     let [watchingUser, setWatchingUser] = useState()
+    const [comments, setComments] = useState([])
     const history = useHistory()
     const user = useContext(authContext)
     const onEdit = () => {
@@ -17,17 +19,18 @@ function DetailsItemComponent() {
     }
     const addFavoureHandler = (e) => {
         fetch(`http://localhost:3050/items/${item._id}/watching`, {
-             method: "POST",
-             headers: {
-                 "Content-Type": "application/json",
-                 "X-Authorization": user.authToken
-             }
-         })
-             .then(res => res.json())
-             .then(resJson => {
-                 setWatchingUser(resJson.watchingUser.length)
-             })
-     }
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Authorization": user.authToken
+            }
+        })
+            .then(res => res.json())
+            .then(resJson => {
+                setWatchingUser(resJson.watchingUser.length)
+            })
+    }
+    
     useEffect(() => {
         fetch(`http://localhost:3050/items/${params.itemId}/details`)
             .then(res => res.json())
@@ -36,6 +39,7 @@ function DetailsItemComponent() {
                 setWatchingUser(data.watchingUser.length)
             })
     }, [])
+    console.log(comments)
     return (
         <>
             <div className="circle"></div>
@@ -55,8 +59,8 @@ function DetailsItemComponent() {
                                         <button onClick={addFavoureHandler} className={item.watchingUser.includes(user._id) ? "added-favourite" : "add-favourite"}>
                                             <i className="fas fa-heart fav"></i>
                                         </button>
-                                        <p>Watching now: {watchingUser}</p>
-                                         </>}
+                                        <p>  Watching now: {watchingUser}</p>
+                                    </>}
                             </div>
                             : null}
                         <hr></hr>
@@ -96,6 +100,7 @@ function DetailsItemComponent() {
                                 : null}
                         </div>
                     </div>
+                    <CreateCommentComponent setComments={setComments} ownerId={item.ownerId._id} creatorId={user._id} itemId={item._id}/>
                 </section>
                 : null}
         </>
