@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, useHistory, Switch } from 'react-router-dom';
 import { useState} from "react";
 import HeaderComponent from './components/Header/HeaderComponent';
 import WelcomeComponent from './components/WelcomePageComponent/WellcomeComponent';
@@ -15,6 +15,7 @@ import { authContext } from './contexts/authContext.js'
 import isAuth from './HOC/authHOC';
 import EditComponent from './components/EditComponent/EditComponent';
 import FavouriteComponent from './components/FavouriteComponent/FavouriteComponent';
+import ErrorPageComponent from './components/ErrorPageComponent/ErrorPageComponent';
 function App() {
   let history = useHistory()
   let [userLog, setUser] = useState({})
@@ -32,6 +33,7 @@ function App() {
           <HeaderComponent/>
         </header>
         <main>
+          <Switch>
           <Route path="/" exact component={WelcomeComponent}></Route>
           <Route path="/users/login" component={() => <LoginForm onLogin={onLogin} />}></Route>
           <Route path="/users/register" component={() => <RegisterComponent onLogin={onLogin} />}></Route>
@@ -42,6 +44,8 @@ function App() {
           <Route path="/items/all-items/category/:category" component={() => <AllItemsByCategoryComponent />}></Route>
           <Route path="/items/:itemId/edit" component={() => <EditComponent />}></Route>
           <Route path="/items/:username/favourite" component={() => <FavouriteComponent />}></Route>
+          <Route path='*' component={ErrorPageComponent}></Route>
+          </Switch>
         </main>
       </div>
     </authContext.Provider>

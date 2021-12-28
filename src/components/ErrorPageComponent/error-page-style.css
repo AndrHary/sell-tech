@@ -1,0 +1,13 @@
+.error-cont {
+    height: 100vh;
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 10000;
+}
+.error-cont h1 {
+    font-family: 'Praise', cursive;
+}

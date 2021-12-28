@@ -20,7 +20,7 @@ function editItem(formData, user, data, itemId) {
     }
      
     return fetch(`${BASE_URL}/items/${itemId}/edit`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
             'X-Authorization': user.authToken
