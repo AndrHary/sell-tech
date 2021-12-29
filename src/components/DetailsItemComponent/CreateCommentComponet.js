@@ -1,7 +1,7 @@
 import { useState } from "react"
 import createComment from "../../utils/createComment"
 
-function CreateCommentComponent({ownerId, itemId, creatorId}) {
+function CreateCommentComponent({ownerId, itemId, creatorId, setComments}) {
     const [comment, setComment] = useState('')
     const changeHandler = (e) => {
         setComment(e.target.value)
@@ -11,6 +11,7 @@ function CreateCommentComponent({ownerId, itemId, creatorId}) {
         createComment(creatorId, ownerId, comment, itemId)
         .then(res => {
            setComment('')
+           setComments(res.comments)
         })
         .catch(err => {
             console.log(err)
@@ -19,7 +20,7 @@ function CreateCommentComponent({ownerId, itemId, creatorId}) {
     }
     return (
         <form className="desc-cont" onSubmit={commentSubmitHandler}>
-            <h3>Feedback:</h3>
+            <h3>Leave Feedback:</h3>
             <div className="description-container">
                 <textarea type="text" value={comment} onChange={changeHandler} placeholder="Leave your feedback for the author here..."></textarea>
             </div>

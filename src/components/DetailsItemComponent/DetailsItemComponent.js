@@ -30,13 +30,14 @@ function DetailsItemComponent() {
                 setWatchingUser(resJson.watchingUser.length)
             })
     }
-    
+
     useEffect(() => {
         fetch(`http://localhost:3050/items/${params.itemId}/details`)
             .then(res => res.json())
             .then(data => {
                 setItem(data)
                 setWatchingUser(data.watchingUser.length)
+                setComments(data.comments)
             })
     }, [])
     console.log(comments)
@@ -100,7 +101,28 @@ function DetailsItemComponent() {
                                 : null}
                         </div>
                     </div>
-                    <CreateCommentComponent setComments={setComments} ownerId={item.ownerId._id} creatorId={user._id} itemId={item._id}/>
+
+                    {user.username
+                        ? <div className="item-comments-container">
+                            <h3>Feedbacks: {comments.length}</h3>
+                            {comments.map((x) => {
+
+                                return <div className="comment-container">
+                                    <NavLink to={`/users/${x.creatorUsername}/profile`} >
+                                          <h3>{x.creatorUsername}</h3>   
+                                        </NavLink>
+                                   
+                                    <div className="comment-content">
+                                        <p>{x.content}</p>
+                                    </div>
+                                </div>
+                            })}
+                        </div>
+                        : null}
+
+                    {user.username && item.ownerId._id !== user._id 
+                    ? <CreateCommentComponent setComments={setComments} ownerId={item.ownerId._id} creatorId={user._id} itemId={item._id} />
+                    : null}
                 </section>
                 : null}
         </>

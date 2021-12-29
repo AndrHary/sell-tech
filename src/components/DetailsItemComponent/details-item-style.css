@@ -196,4 +196,43 @@
     border: none;
     border-style: hidden;
 }
+.item-comments-container {
+    width: 80%;
+    height: fit-content;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(3rem);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 0rem;
+}
+.comment-container {
+    width: 90%;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1rem;
+}
 
+.comment-container h3 {
+    width: 100%;
+    font-family: 'Noto Serif', serif;
+    height: fit-content;
+    margin: 0px;
+}
+.comment-content {
+    margin-top: 0px;
+    width: 90%;
+    height: 5rem;
+    border-radius: auto;
+    border-top: 2px solid;
+    border-color: lightslategray;
+}
