@@ -1,14 +1,14 @@
 import { useState } from "react"
 import createComment from "../../utils/createComment"
 
-function CreateCommentComponent({ownerId, itemId, creatorId, setComments}) {
+function CreateCommentComponent({ownerId, itemId, creatorId,creatorUsername, setComments}) {
     const [comment, setComment] = useState('')
     const changeHandler = (e) => {
         setComment(e.target.value)
     }
     const commentSubmitHandler = (e) => {
         e.preventDefault()
-        createComment(creatorId, ownerId, comment, itemId)
+        createComment(creatorId, ownerId, comment, itemId, creatorUsername)
         .then(res => {
            setComment('')
            setComments(res.comments)

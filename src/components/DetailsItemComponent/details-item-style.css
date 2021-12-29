@@ -98,6 +98,8 @@
     height: 15.5rem;
     background-color: none;
     border-radius: auto;
+    font-family: 'Noto Serif', serif;
+
 }
 .item-location {
     display: flex;
@@ -220,6 +222,7 @@
     align-items: center;
     position: relative;
     margin-bottom: 1rem;
+    font-family: 'Noto Serif', serif;
 }
 
 .comment-container h3 {
@@ -235,4 +238,20 @@
     border-radius: auto;
     border-top: 2px solid;
     border-color: lightslategray;
+    font-family: 'Noto Serif', serif;
+    color: darkslategray;
+}
+.desc-cont button{
+   border-radius: 4px;
+   color: whitesmoke;
+   font-family: 'Noto Serif', serif;
+   background-color: darkgray;
+   letter-spacing: 1px;
+   border: 1px solid;
+   border-color: whitesmoke;
+   cursor: pointer;
+}
+.comment-container a {
+    text-decoration: none;
+    color: darkslategray;
 }

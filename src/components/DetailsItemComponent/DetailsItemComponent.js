@@ -121,7 +121,7 @@ function DetailsItemComponent() {
                         : null}
 
                     {user.username && item.ownerId._id !== user._id 
-                    ? <CreateCommentComponent setComments={setComments} ownerId={item.ownerId._id} creatorId={user._id} itemId={item._id} />
+                    ? <CreateCommentComponent setComments={setComments} creatorUsername={user.username} ownerId={item.ownerId._id} creatorId={user._id} itemId={item._id} />
                     : null}
                 </section>
                 : null}
